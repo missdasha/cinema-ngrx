@@ -1,0 +1,62 @@
+@import '../../../styles/variables.scss';
+
+.form {
+  &__group {
+    margin-bottom: 18px;
+  }
+
+  &__controls {
+    margin: 118px 0;
+  }
+
+  &__control {
+    font-family: Calibri, sans-serif;
+    font-size: 16px;
+    color: #180222f2;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 15px 4px #e5e5e5;
+    outline: none;
+  }
+}
+
+.button {
+  background: $bright-color;
+  color: $white-color;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  transition-duration: .3s;
+
+  &:hover:not(.disabled) {
+    opacity: .9;
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: .7;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.error-message {
+  font-size: 14px;
+  color: $bright-color;
+  padding-top: 5px;
+}
+
+.rule {
+  color: #180222f2;
+  font-size: 14px;
+  padding: 3px 0 21px;
+}

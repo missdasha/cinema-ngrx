@@ -1,0 +1,25 @@
+@import '../../../../styles/variables.scss';
+
+.afisha {
+  background-color: $overlay-color;
+  padding-top: 128px;
+  min-height: calc(100vh - 228px);
+}
+
+.films {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+.message {
+  font-size: 18px;
+  color: $light-color;
+  text-align: center;
+  margin: 60px 0;
+}

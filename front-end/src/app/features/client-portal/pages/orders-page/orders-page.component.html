@@ -1,0 +1,41 @@
+<div class="orders">
+  <div class="container orders__container">
+    <h2 class="orders__heading">Ваши заказы</h2>
+    <ul class="list">
+      <li class="list__item">
+        <a class="link" [class.active]="isFuture" (click)="showFutureOrders()">Будущие</a>
+      </li>
+      <li class="list__item">
+        <a class="link" [class.active]="!isFuture" (click)="showPastOrders()">Прошлые</a>
+      </li>
+    </ul>
+    <div class="orders__list">
+      <div class="order" *ngFor="let order of (isFuture ? futureOrders : pastOrders)">
+        <div class="seance">
+          <h2 class="seance__title">{{order?.seance.film.title}}</h2>
+          <p class="seance__info">
+            {{order?.seance.cinema.name}} по адресу г. {{order?.seance.cinema.city}}, {{order?.seance.cinema.address}}
+          </p>
+          <p class="seance__info">{{order.seance.startTime | moment: "D MMMM, H:mm"}}</p>
+          <p class="seance__info">{{order.seance.film.duration.hours}} ч <span *ngIf="order.seance.film.duration.minutes">{{order.seance.film.duration.minutes}} мин</span></p>
+          <p class="seance__info">{{order.seance.hallNumber}} зал</p>
+          <p class="seance__info">{{order.seance.format}}</p>
+        </div>
+        <div class="choice">
+          <div class="line" *ngFor="let seat of order.seats">
+            <p class="line__name">{{seat.type}}</p>
+            <p class="line__seat">{{seat.row + 1}} ряд, {{seat.seat + 1}} место</p>
+          </div>
+          <div class="line" *ngFor="let service of order.services">
+            <p class="line__name">{{service.service.name}}</p>
+            <p class="line__quantity">{{service.service.quantity}}</p>
+            <p class="line__quantity">{{service.amount}} шт</p>
+          </div>
+          <div class="line">Итого: {{order.totalCost}} BYN</div>
+        </div>
+      </div>
+    </div>
+    <p class="message" *ngIf="isFuture && !futureOrders.length">У Вас нет новых заказов</p>
+    <p class="message" *ngIf="!isFuture && !pastOrders.length">У Вас нет истории заказов</p>
+  </div>
+</div>

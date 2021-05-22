@@ -1,0 +1,102 @@
+<div class="seats-selection">
+  <div class="container seats-selection__container">
+    <div class="film">
+      <img class="film__image" [src]="film?.imageSrc" width="142" height="200">
+      <div class="film__details">
+        <h2 class="film__title">{{film?.title}}</h2>
+        <p class="film__info">{{seance?.cinema.name}} по адресу г. {{seance?.cinema.city}}, {{cinema?.address}}</p>
+        <p class="film__info">{{seance?.startTime | moment: "D MMMM, H:mm"}}</p>
+        <p class="film__info">{{film?.duration.hours}} ч <span *ngIf="film?.duration.minutes">{{film?.duration.minutes}} мин</span></p>
+        <p class="film__info">{{seance?.hallNumber}} зал</p>
+        <p class="film__info">{{seance?.format}}</p>
+      </div>
+    </div>
+    <div class="seats">
+      <div class="seats__scheme">
+        <div class="row" *ngFor="let row of cinema?.halls[seance?.hallNumber - 1].plan; let rowInd = index">
+          <div class="row__number">{{rowInd + 1}}</div>
+          <div class="row__seats">
+            <div *ngFor="let seat of row; let seatInd = index"
+              [class]="getSeatClasses(seat)"
+              [ngClass]="{seat_occupied: seance?.occupiedSeats[rowInd][seatInd], seat_reserved: reservedSeats[rowInd][seatInd]}"
+              (click)="selectSeat(rowInd, seatInd, seat)">
+            </div>
+          </div>
+          <div class="row__number">{{rowInd + 1}}</div>
+        </div>
+      </div>
+      <div class="seats__types">
+        <p class="seats__heading">Типы мест</p>
+        <div class="type" *ngFor="let type of cinema?.halls[seance.hallNumber - 1].seatsTypes">
+          <div class="type__view">
+            <div [class]="getSeatClasses(type)"></div>
+          </div>
+          <div class="type__info">
+            <p class="type__title">{{type}}</p>
+            <p class="type__description">{{seatsTypes[type].description}}</p>
+          </div>
+          <div class="type__price">{{seance?.prices[type]}} BYN</div>
+        </div>
+    </div>
+  </div>
+  <div class="legend">
+    <div class="legend__item">
+      <div class="seat seat_standart"></div><span>Свободно</span>
+    </div>
+    <div class="legend__item">
+      <div class="seat seat_occupied"></div><span>Занято</span>
+    </div>
+    <div class="legend__item">
+      <div class="seat seat_reserved"></div><span>Ваш выбор</span>
+    </div>
+  </div>
+  <div class="seats-selection__select">
+    <button class="seats-selection__button" [class.disabled]="!chosenSeats.length" (click)="showModalWindow()">
+      Выбрать места
+    </button>
+  </div>
+</div>
+<div class="modal-window" *ngIf="isModalWindowVisible">
+  <div class="modal-window__container">
+    <div>
+      <p class="heading">Ваш выбор</p>
+      <div class="choice">
+        <div class="line" *ngFor="let chosenSeat of chosenSeats">
+          <p class="line__name">{{chosenSeat.type}}</p>
+          <p class="line__seat">{{chosenSeat.row + 1}} ряд, {{chosenSeat.seat + 1}} место</p>
+          <p class="line__price">{{seance?.prices[chosenSeat.type]}} BYN</p>
+          <i class="line__icon fas fa-times" (click)="deleteSeat(chosenSeat.row, chosenSeat.seat)"></i>
+        </div>
+        <div class="line" *ngFor="let service of chosenServices">
+          <p class="line__name">{{service.name}}</p>
+          <p class="line__quantity">{{service.quantity}}</p>
+          <p class="line__price">{{service.price}} BYN</p>
+          <i class="line__icon fas fa-times" (click)="deleteService(service)"></i>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="heading">Дополнительные услуги</p>
+      <div class="services">
+        <div class="line" *ngFor="let service of cinema?.additionalServices">
+          <p class="line__name">{{service.name}}</p>
+          <p class="line__quantity">{{service.quantity}}</p>
+          <p class="line__price">{{service.price}} BYN</p>
+          <i class="line__icon fas fa-plus" (click)="addService(service)"></i>
+        </div>
+      </div>
+    </div>
+    <p class="total">Итого: {{totalCost}} BYN</p>
+    <p class="error-message" *ngIf="!chosenSeats.length">Вы не выбрали места</p>
+    <button
+      class="button"
+      [class.disabled]="!chosenSeats.length"
+      (click)="confirmChoice()"
+      type="submit"
+      value="Подтвердить"
+    >
+      Подтвердить
+    </button>
+  </div>
+</div>
+<div class="overlay" *ngIf="isModalWindowVisible" (click)="hideModalWindow()"></div>

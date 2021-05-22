@@ -1,0 +1,13 @@
+@import './styles/fonts.scss';
+
+body {
+  font-family: Calibri, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}

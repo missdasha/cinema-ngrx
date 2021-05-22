@@ -1,0 +1,15 @@
+<app-large-slider [films]="films" (onShowMore)="showMore($event)"></app-large-slider>
+<div class="newest-films">
+  <div class="container newest-films__container">
+    <h2 class="newest-films__heading">Наиболее новые</h2>
+    <div class="newest-films__list">
+      <app-film-card
+        *ngFor="let film of newestFilms"
+        [film]="film"
+        [areSeancesVisible]="false"
+        (onShowMore)="showMore($event)"
+      >
+      </app-film-card>
+    </div>
+  </div>
+</div>

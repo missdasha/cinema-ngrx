@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Кинотеатр 1",
+    "city": "Минск",
+    "address": "пр. Независимости, 88",
+    "hallsNumber": 3,
+    "halls": [
+      {
+        "seatsTypes": ["Standard", "Love Seats"],
+        "plan": [
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Love Seats", "Love Seats", "Love Seats", "Love Seats", "Love Seats", "Love Seats", "Love Seats"]
+        ]
+      },
+      {
+        "seatsTypes": ["Standard", "VIP"],
+        "plan": [
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP"]
+        ]
+      },
+      {
+        "seatsTypes": ["Standard", "VIP"],
+        "plan": [
+          ["VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Кинотеатр 2",
+    "city": "Брест",
+    "address": "ул. Городская, 18",
+    "hallsNumber": 2,
+    "halls": [
+      {
+        "seatsTypes": ["Standard", "Love Seats"],
+        "plan": [
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Love Seats", "Love Seats", "Love Seats", "Love Seats", "Love Seats", "Love Seats", "Love Seats"]
+        ]
+      },
+      {
+        "seatsTypes": ["Standard", "VIP"],
+        "plan": [
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP"]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Кинотеатр 3",
+    "city": "Витебск",
+    "address": "ул. Ленина, 35",
+    "hallsNumber": 3,
+    "halls": [
+      {
+        "seatsTypes": ["Standard", "Love Seats"],
+        "plan": [
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Love Seats", "Love Seats", "Love Seats", "Love Seats", "Love Seats", "Love Seats", "Love Seats"]
+        ]
+      },
+      {
+        "seatsTypes": ["Standard", "VIP"],
+        "plan": [
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard"],
+          ["VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP"]
+        ]
+      },
+      {
+        "seatsTypes": ["Standard", "VIP"],
+        "plan": [
+          ["VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"],
+          ["Standard", "Standard", "Standard","Standard","Standard","Standard","Standard","Standard", "Standard", "Standard", "Standard","Standard","Standard","Standard"]
+        ]
+      }
+    ]
+  }
+]

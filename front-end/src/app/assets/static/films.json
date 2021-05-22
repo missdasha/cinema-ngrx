@@ -1,0 +1,599 @@
+[
+  {
+    "id": 1,
+    "title": "До встречи с тобой",
+    "genres": ["мелодрама", "драма"],
+    "description": "Молодая двадцатишестилетняя девушка Луиза Кларк живет спокойной размеренной жизнью, работая в уютном кафе. Неожиданно ей предлагают хорошо оплачиваемую работу сиделкой, которой нужно будет ухаживать за квадриплегиком – человеком с полностью парализованным телом, имеющим возможность лишь шевелить головой и разговаривать.",
+    "age": 16,
+    "imageSrc": "app/assets/images/banner.png",
+    "duration": {
+      "hours": 2,
+      "minutes": 25
+    },
+    "startDate": 1612645200,
+    "endDate": 1614459600,
+    "seances": [
+      {
+        "id": 1,
+        "time": 1614507600,
+        "cinema": "Кинотеатр 1",
+        "city": "Минск",
+        "hallNumber": 1,
+        "format": "2D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "Love Seats": 20
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "time": 1612375200,
+        "cinema": "Кинотеатр 1",
+        "city": "Минск",
+        "hallNumber": 1,
+        "format": "2D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "Love Seats": 20
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "time": 1614604800,
+        "cinema": "Кинотеатр 1",
+        "city": "Минск",
+        "hallNumber": 2,
+        "format": "2D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "VIP": 12
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "time": 1614698400,
+        "cinema": "Кинотеатр 2",
+        "city": "Брест",
+        "hallNumber": 2,
+        "format": "2D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false, false, false, true, true, true, false, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "VIP": 12
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Последний богатырь: Корень зла",
+    "genres": ["приключения"],
+    "description": "Во второй части зрители узнают об истоках древнего зла, с которым героям пришлось столкнуться в первом фильме, увидят новые уголки сказочного Белогорья и станут свидетелями захватывающих схваток с участием былинных богатырей.",
+    "age": 6,
+    "imageSrc": "app/assets/images/card-image.png",
+    "duration": {
+      "hours": 2,
+      "minutes": 15
+    },
+    "startDate": 1612645200,
+    "endDate": 1614459600,
+    "seances": [
+      {
+        "id": 5,
+        "time": 1614612000,
+        "cinema": "Кинотеатр 1",
+        "city": "Минск",
+        "hallNumber": 2,
+        "format": "3D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "VIP": 12
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "time": 1614697200,
+        "cinema": "Кинотеатр 1",
+        "city": "Минск",
+        "hallNumber": 1,
+        "format": "2D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "Love Seats": 20
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Небеса подождут",
+    "genres": ["мелодрама", "комедия", "драма"],
+    "description": "Штеффи всего 16, её жизнь только начинается: первая любовь, выпускной, поездка с классом в Париж. Но после неожиданного вердикта врачей всё это придется отменить: Штеффи ждет серьезное лечение в больнице.",
+    "age": 16,
+    "imageSrc": "https://www.film.ru/sites/default/files/movies/posters/49630424-1373506.jpg",
+    "duration": {
+      "hours": 3,
+      "minutes": 0
+    },
+    "startDate": 1612645200,
+    "endDate": 1614459600,
+    "seances": [
+      {
+        "id": 7,
+        "time": 1614672000,
+        "cinema": "Кинотеатр 3",
+        "city": "Витебск",
+        "hallNumber": 1,
+        "format": "2D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "Love Seats": 20
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "time": 1614772800,
+        "cinema": "Кинотеатр 3",
+        "city": "Витебск",
+        "hallNumber": 3,
+        "format": "2D",
+        "occupiedSeats": [
+          [false, false, true, true, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "VIP": 10
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "time": 1614794400,
+        "cinema": "Кинотеатр 1",
+        "city": "Минск",
+        "hallNumber": 1,
+        "format": "2D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "Love Seats": 20
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Последний богатырь: Корень зла 2",
+    "genres": ["приключения"],
+    "description": "Во второй части зрители узнают об истоках древнего зла, с которым героям пришлось столкнуться в первом фильме, увидят новые уголки сказочного Белогорья и станут свидетелями захватывающих схваток с участием былинных богатырей.",
+    "age": 6,
+    "imageSrc": "app/assets/images/card-image.png",
+    "duration": {
+      "hours": 2,
+      "minutes": 45
+    },
+    "startDate": 1612645200,
+    "endDate": 1614459600,
+    "seances": [
+      {
+        "id": 10,
+        "time": 1614690000,
+        "cinema": "Кинотеатр 1",
+        "city": "Минск",
+        "hallNumber": 1,
+        "format": "3D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "Love Seats": 20
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "time": 1614708000,
+        "cinema": "Кинотеатр 2",
+        "city": "Брест",
+        "hallNumber": 1,
+        "format": "2D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "Love Seats": 20
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "time": 1614794400,
+        "cinema": "Кинотеатр 2",
+        "city": "Брест",
+        "hallNumber": 2,
+        "format": "3D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "VIP": 12
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "time": 1614880800,
+        "cinema": "Кинотеатр 1",
+        "city": "Минск",
+        "hallNumber": 3,
+        "format": "2D",
+        "occupiedSeats": [
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+          [false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false],
+          [false, false, true, true, true, false, false]
+        ],
+        "prices": {
+          "Standard": 8,
+          "VIP": 12
+        },
+        "additionalServices": [
+          {
+            "name": "Чипсы",
+            "price": 3.5,
+            "quantity": "170г"
+          },
+          {
+            "name": "Попкорн",
+            "price": 4,
+            "quantity": "200г"
+          },
+          {
+            "name": "Сок",
+            "price": 2.5,
+            "quantity": "1л"
+          }
+        ]
+      }
+    ]
+  }
+]

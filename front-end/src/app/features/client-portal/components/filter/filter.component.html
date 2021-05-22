@@ -1,0 +1,13 @@
+<li class="filter">
+  <a class="filter__link">
+    <span class="choice">{{chosenVariant}}</span>
+    <i class="arrow_down fa fa-angle-down"></i>
+  </a>
+  <ul class="variants">
+    <li class="variants__item" *ngFor="let variant of variants">
+      <a class="variant" (click)="chooseVariant(variant)" [class.chosen]="chosenVariant===variant">
+        {{variant}}
+      </a>
+    </li>
+  </ul>
+</li>

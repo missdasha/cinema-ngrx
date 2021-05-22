@@ -1,0 +1,23 @@
+<div class="film-card">
+  <img class="film-card__image" [src]="film.imageSrc" alt="image" (click)="showMore()">
+  <h3 class="film-card__title" (click)="showMore()">{{film.title}}</h3>
+  <p class="film-card__genre">{{film.genres.join(', ')}}</p>
+  <p class="film-card__age">{{film.age}}+</p>
+  <div class="film-card__seances" *ngIf="areSeancesVisible">
+    <ng-container *ngFor="let seance of film.seances; let ind = index">
+      <div class="seance"
+        (click)="chooseSeance(seance._id)"
+        *ngIf="ind < maxSeancesNumber - 1 || (film.seances.length === maxSeancesNumber && ind === maxSeancesNumber - 1)"
+      >
+        {{seance.startTime | moment}}
+      </div>
+      <div class="seance"
+        *ngIf="film.seances.length > maxSeancesNumber && ind === maxSeancesNumber - 1"
+        (click)="showMore()"
+      >
+       Ещё
+      </div>
+    </ng-container>
+  </div>
+  <app-buy-ticket-button [textOnButton]="'Купить билет'" (onBuyTicket)="showMore()"></app-buy-ticket-button>
+</div>

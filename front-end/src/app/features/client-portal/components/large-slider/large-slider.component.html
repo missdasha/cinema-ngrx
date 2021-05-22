@@ -1,0 +1,21 @@
+<div class="slider">
+  <div class="slider__films">
+    <div [@slidesAnimation]="currIndex" class="film">
+      <ng-container *ngFor="let film of films; let ind = index">
+        <ng-container *ngIf="ind === currIndex">
+          <div class="film__info">
+            <h2 class="film__title">{{film.title}}</h2>
+            <p class="film__genre">{{film.genres.join(', ')}}</p>
+            <p class="film__age">{{film.age}}+</p>
+            <app-buy-ticket-button [textOnButton]="'Купить билет'" (onBuyTicket)="showMore()"></app-buy-ticket-button>
+          </div>
+          <div [style.backgroundImage]="'url(' + film.imageSrc + ')'" class="film__banner"></div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+    <div class="slider__arrows">
+      <img class="arrow arrow_left" src="app/assets/icons/left-arrow.png" (click)="showPreviousSlide()">
+      <img class="arrow arrow_right" src="app/assets/icons/right-arrow.png" (click)="showNextSlide()">
+    </div>
+</div>

@@ -1,0 +1,29 @@
+module.exports.INVALID_CREDENTIALS_MESSAGE = 'Invalid credentials were sent';
+module.exports.EMAIL_IS_ALREADY_IN_USE = 'Email is already in use';
+module.exports.DUPLICATED_CINEMA_NAME_MESSAGE = 'Cinema with such name already exists';
+module.exports.DUPLICATED_CINEMA_ADDRESS_MESSAGE = 'Cinema with such address already exists';
+module.exports.DUPLICATED_FILM_TITLE_MESSAGE = 'Film with such title already exists';
+module.exports.DUPLICATED_FILM_IMAGE_MESSAGE = 'Film with such poster already exists';
+module.exports.DUPLICATED_SEANCE_INFO_MESSAGE = 'Such a seance already exists';
+module.exports.DUPLICATED_SERVICE_INFO_MESSAGE = 'Such a service already exists';
+module.exports.FILM_IS_NOT_FOUND_MESSAGE = 'Film is not found';
+module.exports.FILMS_IS_ADDED_MESSAGE = 'Film is added';
+module.exports.CINEMA_IS_NOT_FOUND_MESSAGE = 'Cinema with such name is not found';
+module.exports.CINEMA_IS_ADDED_MESSAGE = 'Cinema is added';
+module.exports.SEANCE_IS_NOT_FOUND_MESSAGE = 'Seance is not found';
+module.exports.SEANCE_IS_ADDED_MESSAGE = 'Seance is added';
+module.exports.SEANCE_IS_UPDATED_MESSAGE = 'Seance is updated';
+module.exports.SEANCE_IS_NOT_UPDATED_MESSAGE = 'Seance is not updated';
+module.exports.SERVICE_IS_ADDED_MESSAGE = 'Service is added';
+module.exports.ORDERS_ARE_NOT_FOUND_MESSAGE = 'Orders are not found';
+module.exports.ORDER_IS_ADDED_MESSAGE = 'Order is added';
+module.exports.ORDER_IS_NOT_ADDED_MESSAGE = 'Order is not added';
+module.exports.ACCESS_DENIED = 'Access denied';
+
+module.exports.SEATS_TYPES = ['Standard', 'Love Seats', 'VIP'];
+module.exports.FORMATS = ['2D', '3D'];
+module.exports.AGE_RESTRICTIONS = [0, 6, 12, 16, 18];
+module.exports.OWNER = 'owner';
+module.exports.ADMIN = 'admin';
+
+module.exports.INTERVAL = 600;

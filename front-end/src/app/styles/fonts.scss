@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cinzel Decorative Regular'), url('../assets/fonts/CinzelDecorative/CinzelDecorative-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Cinzel Decorative Bold'), url('../assets/fonts/CinzelDecorative/CinzelDecorative-Bold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Cinzel Decorative Black'), url('../assets/fonts/CinzelDecorative/CinzelDecorative-Black.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Calibri';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Calibri Regular'), local('Calibri-Regular'),
+      url('../assets/fonts/Calibri/Calibri.woff2') format('woff2'),
+      url('../assets/fonts/Calibri/Calibri.woff') format('woff'),
+      url('../assets/fonts/Calibri/Calibri.ttf') format('truetype');
+}
