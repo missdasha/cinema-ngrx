@@ -1,0 +1,7 @@
+.formats {
+  display: flex;
+}
+
+.format:not(:last-child) {
+  margin-right: 40px;
+}

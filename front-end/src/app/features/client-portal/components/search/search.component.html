@@ -1,0 +1,27 @@
+<div class="search">
+  <img class="search__close" (click)="hideSearchWindow()" src="app/assets/icons/close.png">
+  <div class="search__container">
+    <h2 class="search__heading">Поиск</h2>
+    <form class="form">
+      <input class="form__input" [formControl]="searchInput" placeholder="Фильмы, кинотеатры, города" autofocus>
+    </form>
+    <div class="search__results">
+      <ul class="list">
+        <li class="list__item" *ngFor="let film of foundFilms">
+          <i class="icon fas fa-film"></i><a (click)="chooseFilm(film)">{{film}}</a>
+        </li>
+      </ul>
+      <ul class="list">
+        <li class="list__item" *ngFor="let cinema of foundCinemas">
+          <i class="icon fas fa-warehouse"></i><a (click)="chooseCinema(cinema)">{{cinema}}</a>
+        </li>
+      </ul>
+      <ul class="list">
+        <li class="list__item" *ngFor="let city of foundCities">
+          <i class="icon fas fa-city"></i><a (click)="chooseCity(city)">{{city}}</a>
+        </li>
+      </ul>
+    </div>
+    <p class="not-found" *ngIf="searchInput.dirty && !foundFilms?.length && !foundCinemas?.length && !foundCities?.length">По Вашему запросу ничего не найдено</p>
+  </div>
+</div>

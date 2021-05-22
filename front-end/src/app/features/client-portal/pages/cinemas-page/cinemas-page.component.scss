@@ -1,0 +1,39 @@
+@import '../../../../styles/variables.scss';
+
+.cinemas {
+  background-color: $overlay-color;
+  padding-top: 128px;
+  min-height: calc(100vh - 228px);
+
+  &__container {
+    padding: 40px 0;
+  }
+}
+
+.cinema {
+  display: flex;
+  align-items: center;
+  color: $white-color;
+  padding: 40px 0;
+
+  &:not(:last-child) {
+    border-bottom: 2px solid $light-color;
+  }
+
+  &__info {
+    margin-right: 225px;
+    width: 250px;
+  }
+
+  &__heading {
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: 0;
+  }
+
+  &__address {
+    font-size: 18px;
+    color: $light-color;
+    margin-bottom: 0;
+  }
+}

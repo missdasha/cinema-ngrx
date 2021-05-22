@@ -1,0 +1,68 @@
+<form class="form" *ngIf="isLoaded" [formGroup]="seanceForm" (ngSubmit)="add()" novalidate>
+  <div class="form__group">
+    <p class="heading">Фильм</p>
+    <select class="form__control" formControlName="film" name="film">
+      <option value="" disabled>Выберите фильм</option>
+      <option *ngFor="let film of films" [ngValue]="film">{{film.title}}</option>
+    </select>
+    <div class="error-message" [class.hidden]="controls['film'].valid || controls['film'].untouched">
+      Выберите фильм
+    </div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Кинотеатр</p>
+    <select class="form__control" formControlName="cinema" name="cinema">
+      <option value="" disabled>Выберите кинотеатр</option>
+      <option *ngFor="let cinema of cinemas" [ngValue]="cinema">{{cinema.name}}, {{cinema.city}}</option>
+    </select>
+    <div class="error-message" [class.hidden]="controls['cinema'].valid || controls['cinema'].untouched">
+      Выберите кинотеатр
+    </div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Зал</p>
+    <select class="form__control" [attr.disabled]="controls['cinema'].value ? null : true" formControlName="hallNumber" name="hallNumber">
+      <option value="" disabled>Выберите зал</option>
+      <option *ngFor="let hall of controls['cinema'].value.halls; let i = index" [ngValue]="i+1">{{i + 1}} зал</option>
+    </select>
+    <div class="error-message" [class.hidden]="controls['hallNumber'].valid || controls['hallNumber'].untouched">
+      Выберите зал</div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Дата показа</p>
+    <input class="form__control" [attr.disabled]="controls['film'].value ? null : true" formControlName="date"
+      type="date" name="date"
+      [min]="todayDate > controls['film'].value.startDate ? (todayDate | moment:'YYYY-MM-DD') : (controls['film'].value.startDate | moment:'YYYY-MM-DD')"
+      [max]="controls['film'].value.endDate | moment:'YYYY-MM-DD'">
+    <div class="error-message" [class.hidden]="controls['date'].valid || controls['date'].untouched">Введите дату</div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Время начала сеанса</p>
+    <input class="form__control" formControlName="time" type="time" name="time" min="11:00" max="22:59">
+    <div class="error-message" [class.hidden]="controls['time'].valid || controls['time'].untouched">
+      {{controls['time'].errors && controls['time'].errors.timeIsCorrect ? 'Cеансы могут начинаться с 11:00 до 22:59' :
+      'Введите время'}}
+    </div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Формат</p>
+    <div class="formats radio-buttons">
+      <div *ngFor="let format of formats" class="variant format">
+        <input formControlName="format" [id]="format" class="radio" type="radio" [value]="format" name="format">
+        <label class="label" [for]="format">{{format}}</label>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="controls['hallNumber'].value" formArrayName="prices">
+    <p class="heading">Стоимость мест в BYN</p>
+    <div class="form__group"
+      *ngFor="let type of controls['cinema'].value.halls[controls['hallNumber'].value - 1].seatsTypes; let i = index">
+      <p class="heading">{{seatsNamesObject[type]}}</p>
+      <input class="form__control" [formControlName]="i" type="number" min="0.1" step="0.1" [name]="type" required>
+      <div class="error-message" [class.hidden]="controls['prices'].controls[i].valid || controls['prices'].controls[i].untouched">
+        Введите стоимость
+      </div>
+    </div>
+  </div>
+  <button class="button" [class.disabled]="!seanceForm.valid" type="submit" value="Добавить">Добавить</button>
+</form>

@@ -1,0 +1,24 @@
+<div class="afisha">
+  <div class="container">
+    <app-filters
+      [formControlsConfig]="formControlsConfig"
+      [films]="filmsTitles"
+      [cinemas]="cinemas"
+      (onFilterChanged)="filterFilms($event)"
+    >
+    </app-filters>
+    <div class="films">
+      <div class="films__list">
+        <app-film-card
+          *ngFor="let film of filteredFilms"
+          [film]="film"
+          [areSeancesVisible]="true"
+          (onChooseSeance)="chooseSeance($event)"
+          (onShowMore)="showMore($event)"
+        >
+        </app-film-card>
+      </div>
+    </div>
+    <p class="message" *ngIf="!filteredFilms.length">Фильмы не найдены</p>
+  </div>
+</div>

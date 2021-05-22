@@ -1,0 +1,115 @@
+@import '../../../../styles/variables.scss';
+
+.orders {
+  background-color: #180222f2;
+  padding-top: 128px;
+  min-height: calc(100vh - 228px);
+
+  &__container {
+    padding: 40px 0;
+  }
+
+  &__heading {
+    color: $white-color;
+    font-size: 36px;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 0;
+  }
+}
+
+.list {
+  display: flex;
+  font-size: 18px;
+  margin: 0;
+  padding-left: 0;
+
+  &__item {
+    display: inline;
+
+    &:first-child {
+      margin-right: 46px;
+    }
+  }
+}
+
+.link {
+  color: $light-color;
+  cursor: pointer;
+
+  &.active {
+    border-bottom: 2px solid $bright-color;
+    font-weight: 700;
+  }
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+
+  &:not(:last-child) {
+    border-bottom: 2px solid $light-color;
+  }
+}
+
+.seance {
+  &__title {
+    color: $white-color;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 36px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  &__info {
+    color: $light-color;
+    font-size: 18px;
+    margin: 10px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.line {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $light-color;
+
+  &:not(:first-child) {
+    padding-top: 25px;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $light-color;
+    padding-bottom: 25px;
+  }
+
+  &__name {
+    width: 90px;
+    margin: 0;
+  }
+
+  &__seat, &__quantity {
+    margin: 0;
+  }
+
+  &__price {
+    width: 60px;
+    text-align: right;
+    margin: 0;
+  }
+}
+
+.message {
+  font-size: 18px;
+  color: $light-color;
+  text-align: center;
+  margin: 60px 0;
+}

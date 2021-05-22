@@ -1,0 +1,5 @@
+<app-navbar (showSearch)="openSearchWindow()"></app-navbar>
+<app-modal-window *ngIf="isModalWindowVisible"></app-modal-window>
+<app-search *ngIf="isSearchWindowVisible" (hideSearch)="hideSearchWindow()"></app-search>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

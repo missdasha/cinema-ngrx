@@ -1,0 +1,87 @@
+<form class="form" *ngIf="isLoaded" [formGroup]="cinemaForm" (ngSubmit)="add()" novalidate>
+  <div class="form__group">
+    <p class="heading">Название</p>
+    <input class="form__control" formControlName="name" type="text" name="name" autocomplete="off">
+    <div class="error-message" [class.hidden]="controls['name'].valid || controls['name'].untouched">Введите название</div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Город</p>
+    <input class="form__control" formControlName="city" type="text" name="city" autocomplete="off">
+    <div class="error-message" [class.hidden]="controls['city'].valid || controls['city'].untouched">Введите город</div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Адрес</p>
+    <input class="form__control" formControlName="address" type="text" name="address" autocomplete="off">
+    <div class="error-message" [class.hidden]="controls['address'].valid || controls['address'].untouched">Введите адрес</div>
+  </div>
+  <div class="form__group" formArrayName="additionalServices">
+    <p class="heading">Дополнительные услуги</p>
+    <div class="variants checkboxes">
+      <div class="variant" *ngFor="let service of services; let i = index">
+        <input class="checkbox" type="checkbox" [formControlName]="i"/>
+        <label class="label">{{service.name}}, {{service.quantity}}, {{service.price}} BYN</label>
+      </div>
+    </div>
+    <div class="error-message" [class.hidden]="!controls['additionalServices'].errors || controls['additionalServices'].untouched">Выберите услуги</div>
+  </div>
+  <div formArrayName="halls">
+    <p class="heading">Залы</p>
+    <div class="form__group" *ngFor="let hall of controls['halls']['controls']; let i = index">
+      <ng-container>
+        <p class="heading">Зал {{i + 1}}</p>
+        <div class="seat">
+          <p class="heading">Standard</p>
+          <div class="seat__info">
+            <div class="seat__column">
+              <p class="heading">Количество рядов</p>
+              <input class="form__control" [formControl]="hall.controls.standard.controls.rows" type="number" min="0" step="1">
+            </div>
+            <div class="seat__column">
+              <p class="heading">Количество мест в ряду</p>
+              <input class="form__control" [formControl]="hall.controls.standard.controls.seats" type="number" min="0" step="1">
+            </div>
+          </div>
+          <div class="error-message" [class.hidden]="hall.controls.standard.valid || hall.controls.standard.untouched">
+            Значения должны быть не меньше 0
+          </div>
+        </div>
+        <div class="seat">
+          <p class="heading">VIP</p>
+          <div class="seat__info" [formGroup]="hall.controls.vip" >
+            <div class="seat__column">
+              <p class="heading">Количество рядов</p>
+              <input class="form__control" [formControl]="hall.controls.vip.controls.rows" type="number" min="0" step="1">
+            </div>
+            <div class="seat__column">
+              <p class="heading">Количество мест в ряду</p>
+              <input class="form__control" [formControl]="hall.controls.vip.controls.seats" type="number" min="0" step="1">
+            </div>
+          </div>
+          <div class="error-message" [class.hidden]="hall.controls.vip.valid || hall.controls.vip.untouched">
+            Значения должны быть не меньше 0
+          </div>
+        </div>
+        <div class="seat">
+          <p class="heading">Love seats</p>
+          <div class="seat__info">
+            <div class="seat__column">
+              <p class="heading">Количество рядов</p>
+              <input class="form__control" [formControl]="hall.controls.loveSeats.controls.rows" type="number" min="0" step="1">
+            </div>
+            <div class="seat__column">
+              <p class="heading">Количество мест в ряду</p>
+              <input class="form__control" [formControl]="hall.controls.loveSeats.controls.seats" type="number" min="0" step="1">
+            </div>
+          </div>
+          <div class="error-message" [class.hidden]="hall.controls.loveSeats.valid || hall.controls.loveSeats.untouched">
+            Значения должны быть не меньше 0
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <p class="add" (click)="addHall()">Добавить зал</p>
+  </div>
+  <button class="button" [class.disabled]="!cinemaForm.valid" type="submit" value="Добавить">Добавить</button>
+</form>
+
+

@@ -1,0 +1,98 @@
+[
+  {
+    "_id": "605b83c920b11c27dc89cf29",
+    "occupiedSeats": [
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,true,false,false,true,false]
+    ],
+    "film": "603b68783997e274e40be0fe",
+    "cinema": "605b81d1269768304c352a31",
+    "format":"2D",
+    "hallNumber": 2,
+    "prices": {
+      "standard": 8,
+      "loveSeats": 16
+    },
+    "startTime": 1616769000,
+    "endTime": 1616777700
+  },
+  {
+    "_id": "605b83c920b11c27dc89cf29",
+    "occupiedSeats": [
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,true,false,false,true,false]
+    ],
+    "film": "603b68783997e274e40be0fe",
+    "cinema": "605b81d1269768304c352a31",
+    "format":"2D",
+    "hallNumber": 2,
+    "prices": {
+      "standard": 8,
+      "loveSeats": 16
+    },
+    "startTime": 1616686200,
+    "endTime": 1616693040
+  },
+  {
+    "_id": "605b83c920b11c27dc89cf29",
+    "occupiedSeats": [
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,true,false,false,true,false]
+    ],
+    "film": "603b68783997e274e40be0fe",
+    "cinema": "605b81d1269768304c352a31",
+    "format":"2D",
+    "hallNumber": 2,
+    "prices": {
+      "standard": 8,
+      "loveSeats": 16
+    },
+    "startTime": 1616689800,
+    "endTime": 1616697900
+  },
+  {
+    "_id": "605b83c920b11c27dc89cf29",
+    "occupiedSeats": [
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+      [false,false,false,true,false,false,true,false]
+    ],
+    "film": "603b68783997e274e40be0fe",
+    "cinema": "605b81d1269768304c352a31",
+    "format":"2D",
+    "hallNumber": 2,
+    "prices": {
+      "standard": 8,
+      "loveSeats": 16
+    },
+    "startTime": 1616749200,
+    "endTime": 1616757900
+  }
+]

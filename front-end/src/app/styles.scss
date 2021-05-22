@@ -1,0 +1,50 @@
+@import './styles/fonts.scss';
+@import './styles/variables.scss';
+
+body {
+  font-family: Calibri, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.form__group {
+  margin-bottom: 18px;
+}
+
+.button {
+  background: $bright-color;
+  color: $white-color;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  transition-duration: .3s;
+
+  &:hover:not(.disabled) {
+    opacity: .9;
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: .7;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.error-message {
+  font-size: 14px;
+  color: $bright-color;
+  padding-top: 5px;
+}

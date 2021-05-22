@@ -1,0 +1,22 @@
+<form class="form" [formGroup]="serviceForm" (ngSubmit)="add()" novalidate>
+  <div class="form__group">
+    <p class="heading">Название</p>
+    <input class="form__control" formControlName="name" type="text" name="name" autocomplete="off">
+    <div class="error-message" [class.hidden]="serviceForm.controls['name'].valid || serviceForm.controls['name'].untouched">Введите название</div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Цена в BYN</p>
+    <input class="form__control" formControlName="price" type="number" min="0.1" step="0.1" name="price">
+    <div class="error-message" [class.hidden]="serviceForm.controls['price'].valid || serviceForm.controls['price'].untouched">
+      {{serviceForm.controls['price'].errors && serviceForm.controls['price'].errors.min ? "Некорректная стоимость" : "Введите стоимость"}}
+    </div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Количество</p>
+    <input class="form__control" formControlName="quantity" type="text" name="quantity" autocomplete="off">
+    <div class="error-message" [class.hidden]="serviceForm.controls['quantity'].valid || serviceForm.controls['quantity'].untouched">
+      {{serviceForm.controls['quantity'].errors && serviceForm.controls['quantity'].errors.isPositive ? "Некорректное количество" : "Введите количество"}}
+    </div>
+  </div>
+  <button class="button" [class.disabled]="!serviceForm.valid" type="submit" value="Добавить">Добавить</button>
+</form>

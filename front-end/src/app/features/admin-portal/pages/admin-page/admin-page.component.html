@@ -1,0 +1,15 @@
+<div class="admin">
+  <div class="container">
+    <ul class="list">
+      <li class="list__item" *ngFor="let formName of formsNames">
+        <a class="link" [class.active]="chosenForm === formName" (click)="showForm(formName)">{{formName}}</a>
+      </li>
+    </ul>
+    <div class="form">
+      <app-cinema-form *ngIf="chosenForm===formsNames[0]"></app-cinema-form>
+      <app-film-form *ngIf="chosenForm===formsNames[1]"></app-film-form>
+      <app-seance-form *ngIf="chosenForm===formsNames[2]"></app-seance-form>
+      <app-service-form *ngIf="chosenForm===formsNames[3]"></app-service-form>
+    </div>
+  </div>
+</div>

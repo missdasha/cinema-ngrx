@@ -1,0 +1,79 @@
+@import "../../../../styles/variables.scss";
+
+.search {
+  background-color: $overlay-color;
+  color: $white-color;
+  z-index: 30;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &__close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  &__container {
+    width: 60%;
+    margin: 80px auto 0;
+  }
+
+  &__heading {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__results {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px
+  }
+}
+
+.form {
+  &__input {
+    font-family: Calibri, sans-serif;
+    font-size: 18px;
+    color: $overlay-color;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+}
+
+.list {
+  padding-left: 0;
+  margin: 0;
+
+  &__item {
+    color: $light-color;
+    font-size: 24px;
+    list-style-type: none;
+    padding-bottom: 10px;
+
+    &:hover {
+      color: $bright-color;
+      cursor: pointer;
+    }
+  }
+}
+
+.icon {
+  color: $bright-color;
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.not-found {
+  color: #c2c2c2;
+  font-size: 18px;
+  text-align: center;
+}

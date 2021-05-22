@@ -1,0 +1,19 @@
+@import '../../../../styles/variables.scss';
+
+.seat {
+  margin-bottom: 18px;
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__column {
+    width: 45%;
+  }
+}
+
+.add {
+  color: $bright-color;
+  cursor: pointer;
+}

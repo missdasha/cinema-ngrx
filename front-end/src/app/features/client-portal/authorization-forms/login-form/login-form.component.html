@@ -1,0 +1,13 @@
+<form class="form" [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+  <div class="form__controls">
+    <div class="form__group">
+      <input class="form__control" formControlName="userEmail" type="text" name="email" placeholder="Email" autocomplete="off">
+      <div class="error-message" [class.hidden]="loginForm.controls['userEmail'].valid || loginForm.controls['userEmail'].untouched">Некорректный email</div>
+    </div>
+    <div class="form__group">
+      <input class="form__control" formControlName="userPassword" type="password" name="password" placeholder="Пароль">
+      <div class="error-message" [class.hidden]="loginForm.controls['userPassword'].valid || loginForm.controls['userPassword'].untouched">Некорректный пароль</div>
+    </div>
+  </div>
+  <button class="button" [class.disabled]="!loginForm.valid" type="submit" value="Войти">Войти</button>
+</form>
