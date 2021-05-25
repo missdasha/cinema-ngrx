@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminPortalModule } from './features/admin-portal/admin-portal.module';
+import { RootStoreModule } from './store';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AdminPortalModule } from './features/admin-portal/admin-portal.module';
     AdminPortalModule,
     CoreModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RootStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

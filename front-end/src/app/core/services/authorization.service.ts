@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../../features/client-portal/models/user.model';
-import { messages, roles } from '../../features/client-portal/сonstants/constants';
+import { messages, roles } from '../сonstants/constants';
 
 @Injectable({
   providedIn: 'root'

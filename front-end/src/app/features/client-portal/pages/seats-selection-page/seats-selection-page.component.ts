@@ -2,17 +2,17 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
-import { Cinema } from '../../models/cinema.model';
-import { Film } from '../../models/film.model';
-import { Seance } from '../../models/seance.model';
+import { Cinema } from '../../../../core/models/cinema.model';
+import { Film } from '../../../../core/models/film.model';
+import { Seance } from '../../../../core/models/seance.model';
 import { Seat } from '../../models/seat.model';
-import { Service } from '../../models/service.model';
+import { Service } from '../../../../core/models/service.model';
 import { AuthorizationService } from '../../../../core/services/authorization.service';
-import { CinemaService } from '../../services/cinema.service';
-import { FilmService } from '../../services/film.service';
+import { CinemaService } from '../../../../core/services/cinema.service';
+import { FilmService } from '../../../../core/services/film.service'; 
 import { OrderService } from '../../services/order.service';
 import { getImageSrc } from 'src/app/shared/utils/utils';
-import { seatsNames } from '../../сonstants/constants';
+import { seatsNames } from '../../../../core/сonstants/constants';
 
 @Component({
   selector: 'app-seats-selection-page',

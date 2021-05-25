@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { Service } from 'src/app/features/client-portal/models/service.model.js';
-import { AdditionalService } from 'src/app/features/client-portal/services/additional.service';
-import { messages } from '../../../client-portal/сonstants/constants';
+import { Service } from '../../../../core/models/service.model.js';
+import { AdditionalService } from '../../../../core/services/additional.service';
+import { messages } from '../../../../core/сonstants/constants';
 
 @Component({
   selector: 'app-service-form',

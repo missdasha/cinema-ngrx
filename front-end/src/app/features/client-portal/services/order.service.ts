@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Order } from '../models/order.model';
-import { Service } from '../models/service.model';
-import { messages } from '../сonstants/constants';
+import { Service } from '../../../core/models/service.model';
+import { messages } from '../../../core/сonstants/constants';
 
 @Injectable({
   providedIn: 'root'

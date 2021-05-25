@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import * as moment from 'moment';
-import { Film } from 'src/app/features/client-portal/models/film.model';
-import { FilmService } from 'src/app/features/client-portal/services/film.service';
-import { messages } from '../../../client-portal/сonstants/constants';
+import { Film } from '../../../../core/models/film.model';
+import { FilmService } from '../../../../core/services/film.service';
+import { messages } from '../../../../core/сonstants/constants';
 import { getTimestamp } from '../../../../shared/utils/utils';
 @Component({
   selector: 'app-film-form',

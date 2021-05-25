@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Film } from '../../models/film.model';
-import { FilmService } from '../../services/film.service';
+import { Film } from '../../../../core/models/film.model';
+import { FilmService } from '../../../../core/services/film.service';
 
 @Component({
   selector: 'app-main-page',

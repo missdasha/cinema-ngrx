@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Cinema } from '../../models/cinema.model';
-import { CinemaService } from '../../services/cinema.service';
+import { Cinema } from '../../../../core/models/cinema.model';
+import { CinemaService } from '../../../../core/services/cinema.service';
 
 @Component({
   selector: 'app-cinemas-page',

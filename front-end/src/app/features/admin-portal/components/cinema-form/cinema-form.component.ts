@@ -2,11 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Cinema } from 'src/app/features/client-portal/models/cinema.model';
-import { Service } from 'src/app/features/client-portal/models/service.model';
-import { AdditionalService } from 'src/app/features/client-portal/services/additional.service';
-import { CinemaService } from 'src/app/features/client-portal/services/cinema.service';
-import { messages } from '../../../client-portal/сonstants/constants';
+import { Cinema } from '../../../../core/models/cinema.model';
+import { Service } from '../../../../core/models/service.model';
+import { AdditionalService } from '../../../../core/services/additional.service';
+import { CinemaService } from '../../../../core/services/cinema.service';
+import { messages } from '../../../../core/сonstants/constants';
 
 @Component({
   selector: 'app-cinema-form',

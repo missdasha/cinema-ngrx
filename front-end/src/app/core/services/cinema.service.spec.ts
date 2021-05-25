@@ -4,7 +4,7 @@ import { TestBed } from '@angular/core/testing';
 import { Cinema } from '../models/cinema.model';
 import { CinemaService } from './cinema.service';
 import { environment } from 'src/environments/environment';
-import * as cinemas from '../../../assets/static/cinemas.json';
+import * as cinemas from '../../assets/static/cinemas.json';
 
 describe('Cinema Service', () => {
   let httpClient: HttpClient;

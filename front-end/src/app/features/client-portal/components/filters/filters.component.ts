@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cinema } from '../../models/cinema.model';
+import { Cinema } from '../../../../core/models/cinema.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import * as moment from 'moment';

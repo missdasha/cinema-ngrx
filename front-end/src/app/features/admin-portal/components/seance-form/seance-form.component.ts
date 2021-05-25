@@ -2,14 +2,15 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { forkJoin, Subject } from 'rxjs';
 import * as moment from 'moment';
-import { Cinema } from 'src/app/features/client-portal/models/cinema.model';
-import { Film } from 'src/app/features/client-portal/models/film.model';
-import { CinemaService } from 'src/app/features/client-portal/services/cinema.service';
-import { FilmService } from 'src/app/features/client-portal/services/film.service';
+import { Cinema } from '../../../../core/models/cinema.model';
+import { Film } from '../../../../core/models/film.model';
+import { CinemaService } from '../../../../core/services/cinema.service';
+import { FilmService } from '../../../../core/services/film.service';
 import { getTimestamp } from 'src/app/shared/utils/utils';
-import { SeanceService } from 'src/app/features/client-portal/services/seance.service';
-import { Seance } from 'src/app/features/client-portal/models/seance.model';
-import { messages, seatsNames } from '../../../client-portal/сonstants/constants';
+import { SeanceService } from '../../../../core/services/seance.service';
+import { Seance } from '../../../../core/models/seance.model';
+import { messages, seatsNames } from '../../../../core/сonstants/constants';
+
 @Component({
   selector: 'app-seance-form',
   templateUrl: './seance-form.component.html',

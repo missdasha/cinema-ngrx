@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/cor
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthorizationService } from '../../services/authorization.service';
-import { roles } from '../../../features/client-portal/сonstants/constants';
+import { roles } from '../../сonstants/constants';
 
 @Component({
   selector: 'app-navbar',

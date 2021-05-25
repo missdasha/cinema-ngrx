@@ -20,10 +20,6 @@ export class FilmService {
   }
 
   getFilms(): Observable<Film[]> {
-    return this.http.get<Film[]>(`${environment.baseUrl}${this.pathToFilms}`);
-  }
-
-  getFilmsForSearch(): Observable<Film[]> {
     return this.http.get<Film[]>(`${environment.baseUrl}${this.pathToFilms}${this.selectQuery}title`);
   }
 

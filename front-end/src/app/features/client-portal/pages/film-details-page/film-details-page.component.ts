@@ -3,11 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { getImageSrc } from 'src/app/shared/utils/utils';
-import { Cinema } from '../../models/cinema.model';
-import { Film } from '../../models/film.model';
-import { Seance } from '../../models/seance.model';
-import { CinemaService } from '../../services/cinema.service';
-import { FilmService } from '../../services/film.service';
+import { Cinema } from '../../../../core/models/cinema.model';
+import { Film } from '../../../../core/models/film.model';
+import { Seance } from '../../../../core/models/seance.model';
+import { CinemaService } from '../../../../core/services/cinema.service';
+import { FilmService } from '../../../../core/services/film.service';
 
 @Component({
   selector: 'app-film-details-page',

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Film } from '../../models/film.model';
+import { Film } from '../../../../core/models/film.model';
 import { trigger, transition, query, style, animate, group } from '@angular/animations';
 import { environment } from 'src/environments/environment';
 

@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Cinema } from '../models/cinema.model';
 import { Service } from '../models/service.model';
-import { messages } from '../сonstants/constants';
 
 @Injectable({
   providedIn: 'root'

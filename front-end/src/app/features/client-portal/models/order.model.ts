@@ -1,5 +1,5 @@
-import { Seance } from "./seance.model";
-import { Service } from "./service.model";
+import { Seance } from "../../../core/models/seance.model";
+import { Service } from "../../../core/models/service.model";
 
 export interface Order {
   userId: string;

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Film } from '../../models/film.model';
+import { Film } from '../../../../core/models/film.model';
 import { getImageSrc } from '../../../../shared/utils/utils';
 @Component({
   selector: 'app-film-card',

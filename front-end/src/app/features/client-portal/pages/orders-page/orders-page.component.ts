@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Order } from '../../models/order.model';
 import { OrderService } from '../../services/order.service';
-import { seatsNames } from '../../сonstants/constants';
+import { seatsNames } from '../../../../core/сonstants/constants';
 @Component({
   selector: 'app-orders-page',
   templateUrl: './orders-page.component.html',

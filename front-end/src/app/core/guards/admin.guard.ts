@@ -3,7 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { Observable, of } from 'rxjs';
 import { catchError, map, take } from 'rxjs/operators';
 import { AuthorizationService } from '../services/authorization.service';
-import { roles } from '../../features/client-portal/сonstants/constants';
+import { roles } from '../сonstants/constants';
 
 @Injectable()
 export class AdminGuard implements CanActivate {

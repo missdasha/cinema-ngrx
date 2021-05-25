@@ -1,4 +1,4 @@
-import { Seance } from './seance.model';
+import { Seance } from '../../core/models/seance.model';
 
 export interface Film {
   _id: string;
