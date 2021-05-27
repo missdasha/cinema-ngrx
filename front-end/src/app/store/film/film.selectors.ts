@@ -19,3 +19,13 @@ export const selectFilmsTitles = createSelector(
   selectFilmsWithSeances,
   (films: Film[]) => films.map((film: Film) => film.title)
 );
+
+export const selectAllFilmsTitles = createSelector(
+  selectFilms,
+  (films: Film[]) => films.map((film: Film) => film.title)
+);
+
+export const selectFilm = createSelector(
+  selectFilmsState,
+  (filmState: FilmState) => filmState.film
+);

@@ -1,15 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { forkJoin, Subject } from 'rxjs';
+import { combineLatest, Subject } from 'rxjs';
 import * as moment from 'moment';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
 import { CinemaService } from '../../../../core/services/cinema.service';
-import { FilmService } from '../../../../core/services/film.service';
 import { getTimestamp } from 'src/app/shared/utils/utils';
 import { SeanceService } from '../../../../core/services/seance.service';
 import { Seance } from '../../../../core/models/seance.model';
 import { messages, seatsNames } from '../../../../core/сonstants/constants';
+import { Store } from '@ngrx/store';
+import { filmActions, filmSelectors, RootStoreState } from 'src/app/store';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-seance-form',
@@ -29,13 +31,19 @@ export class SeanceFormComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private cinemaService: CinemaService,
-    private filmService: FilmService,
-    private seanceService: SeanceService
+    private seanceService: SeanceService,
+    private store$: Store<RootStoreState.State>
   ) { }
 
   ngOnInit() {
-    forkJoin([this.cinemaService.getCinemasForAdmin(), this.filmService.getFilms()]).subscribe(
-      (([cinemas, films]) => {
+    this.store$.dispatch(filmActions.loadFilms());
+    
+    combineLatest([this.cinemaService.getCinemasForAdmin(), this.store$.select(filmSelectors.selectFilms)])
+      .pipe(
+        filter(([cinemas, films]) => cinemas.length !== 0 && films.length !== 0)
+      ).subscribe(
+      ([cinemas, films]) => {
+        console.log('cinemas, films: ', cinemas, films);
         this.films = films;
         this.cinemas = cinemas;
 
@@ -63,9 +71,9 @@ export class SeanceFormComponent implements OnInit, OnDestroy {
             validator: this.timeRangeValidator('time')
           }
         );
+
         this.isLoaded = true;
       })
-    );
   }
 
   ngOnDestroy() {

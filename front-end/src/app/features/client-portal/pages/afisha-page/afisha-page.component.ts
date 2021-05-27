@@ -1,13 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import * as moment from 'moment';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { RootStoreState } from 'src/app/store';
+import { loadFilmsForAfisha } from 'src/app/store/film/film.actions';
+import { selectFilmsWithSeances } from 'src/app/store/film/film.selectors';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
 import { Seance } from '../../../../core/models/seance.model';
 import { CinemaService } from '../../../../core/services/cinema.service';
-import { FilmService } from '../../../../core/services/film.service';
 
 export const defaultControlsValues = {
   city: 'Все города',
@@ -38,20 +41,25 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private cinemaService: CinemaService,
-    private filmService: FilmService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private store$: Store<RootStoreState.State>
+  ) { }
 
   ngOnInit() {
-    this.filmService.getFilmsForAfisha()
+    this.store$.dispatch(loadFilmsForAfisha());
+
+    this.store$.select(selectFilmsWithSeances)
       .pipe(takeUntil(this.notifier$))
-      .subscribe(
-        (films: Film[]) => {
+      .subscribe((films: Film[]) => {
+        console.log(films);
+        if (films.length) {
           this.films = films.filter((film: Film) => film.seances.length);
           this.filterFilms(this.formControlsConfig);
           this.filmsTitles = this.films.map((film: Film) => film.title);
+          console.log(this.filmsTitles);
         }
-      );
+      });
 
     this.cinemaService.getCinemas()
       .pipe(takeUntil(this.notifier$))
