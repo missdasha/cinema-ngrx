@@ -2,20 +2,25 @@ import { createAction, props } from '@ngrx/store';
 import { Film } from 'src/app/core/models/film.model';
 
 export const loadFilms = createAction(
-  '[Film] Load Films'
+  '[Films] Load Films'
 );
 
 export const loadFilmsForAfisha = createAction(
-  '[Afisha] Load Films'
+  '[Films] Load Films For Afisha'
 );
 
 export const loadFilmById = createAction(
-  '[Film] Load Film',
+  '[Film] Load Film By Id',
+  props<{ id: string }>()
+);
+
+export const loadFilmByIdAndQuery = createAction(
+  '[Film] Load Film By Id And Query',
   props<{ id: string }>()
 );
 
 export const loadFilmsSuccess = createAction(
-  '[Film] Load Films Success',
+  '[Films] Load Films Success',
   props<{ films: Film[] }>()
 );
 

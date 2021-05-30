@@ -19,6 +19,10 @@ export class FilmService {
     return this.http.post<{ message: string, data: Film }>(`${environment.baseUrl}${this.pathToFilms}${this.pathToNewFilm}`, form);
   }
 
+  getFilmsFullInfo(): Observable<Film[]> {
+    return this.http.get<Film[]>(`${environment.baseUrl}${this.pathToFilms}`);
+  }
+
   getFilms(): Observable<Film[]> {
     return this.http.get<Film[]>(`${environment.baseUrl}${this.pathToFilms}${this.selectQuery}title`);
   }

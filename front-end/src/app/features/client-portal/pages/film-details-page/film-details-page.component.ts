@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterState } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
-import { switchMap, takeUntil } from 'rxjs/operators';
+import { filter, switchMap, takeUntil } from 'rxjs/operators';
 import { getImageSrc } from 'src/app/shared/utils/utils';
-import { RootStoreState } from 'src/app/store';
+import { filmSelectors, RootStoreState } from 'src/app/store';
 import { loadFilmById } from 'src/app/store/film/film.actions';
 import { selectFilm } from 'src/app/store/film/film.selectors';
 import { Cinema } from '../../../../core/models/cinema.model';
@@ -33,7 +33,6 @@ export class FilmDetailsPageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-
     this.route.queryParams
       .pipe(
         takeUntil(this.notifier$),
@@ -45,25 +44,23 @@ export class FilmDetailsPageComponent implements OnInit, OnDestroy {
           else {
             this.seancesIds = queryParam.seancesIds;
           }
-          this.store$.dispatch(loadFilmById({ id: this.filmId }));
-          return this.store$.select(selectFilm);
+          // this.store$.dispatch(loadFilmById({ id: this.filmId }));
+          return this.store$.select(filmSelectors.selectFilmById(this.filmId)).pipe(
+            filter((film: Film) => !!film && film._id === this.filmId && film.genres && film.genres.length !== 0)
+          );
         }),
         switchMap((film: Film) => {
-          if (film) {
-            this.film = film;
-            this.imageSrc = getImageSrc(this.film);
-          }
+          this.film = film;
+          this.imageSrc = getImageSrc(this.film);
           return this.cinemaService.getCinemas();
         })
       )
       .subscribe((cinemas: Cinema[]) => {
-        if (this.film) {
-          this.cinemas = cinemas.filter((cinema: Cinema) => {
-            return this.film.seances.some(
-              (seance: Seance) => this.seancesIds.includes(seance._id) && seance.cinema.name === cinema.name
-            );
-          });
-        }
+        this.cinemas = cinemas.filter((cinema: Cinema) => {
+          return this.film.seances.some(
+            (seance: Seance) => this.seancesIds.includes(seance._id) && seance.cinema.name === cinema.name
+          );
+        });
       });
   }
 

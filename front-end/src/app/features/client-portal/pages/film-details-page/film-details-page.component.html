@@ -1,6 +1,6 @@
 <div class="details">
   <div class="container details__container">
-    <div class="film">
+    <div class="film" *ngIf="film">
       <img class="film__image" [src]="imageSrc" width="142" height="200">
       <div class="film__details">
         <h2 class="film__heading">{{film?.title}}</h2>

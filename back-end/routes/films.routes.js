@@ -62,7 +62,7 @@ router.get('/', async (req, res, next) => {
                         .populate({
                           path: 'seances',
                           populate: { path: 'cinema' }
-                        })
+                        });
     return res.status(200).json(films);
   }
   catch (e) {

@@ -29,3 +29,42 @@ export const selectFilm = createSelector(
   selectFilmsState,
   (filmState: FilmState) => filmState.film
 );
+
+export const selectFilmById = (id: string) => {
+  return createSelector(
+    selectFilms,
+    (films: Film[]) => films.find((film: Film) => film._id === id)
+  )
+}; 
+
+export const selectFilmsWithGivenFieldsAndSeances = (fields: string) => {
+  return createSelector(
+    selectFilmsWithSeances,
+    (films: Film[]) => {
+      const fieldsArray = fields.split(',');
+      return films.map((film: Film) => {
+        const newFilm = {};
+        fieldsArray.forEach((field: string) => {
+          newFilm[field] = film[field];
+        });
+        return newFilm;
+      });
+    }
+  );
+};
+
+export const selectFilmsWithGivenFields = (fields: string) => {
+  return createSelector(
+    selectFilms,
+    (films: Film[]) => {
+      const fieldsArray = fields.split(',');
+      return films.map((film: Film) => {
+        const newFilm = {};
+        fieldsArray.forEach((field: string) => {
+          newFilm[field] = film[field];
+        });
+        return newFilm;
+      });
+    }
+  );
+};

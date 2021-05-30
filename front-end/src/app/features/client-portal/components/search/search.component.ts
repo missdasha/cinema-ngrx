@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { hasSubstring } from 'src/app/shared/utils/utils';
-import { filmActions, filmSelectors, RootStoreState } from 'src/app/store';
+import { filmSelectors, RootStoreState } from 'src/app/store';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
 import { CinemaService } from '../../../../core/services/cinema.service';
@@ -47,8 +47,8 @@ export class SearchComponent implements OnInit, OnDestroy {
         }
       });
 
-    this.store$.dispatch(filmActions.loadFilms());
-    this.store$.select(filmSelectors.selectFilmsTitles).subscribe(titles => this.filmsTitles = titles );
+    this.store$.select(filmSelectors.selectFilmsTitles)
+      .subscribe((titles: string[]) => this.filmsTitles = titles);
 
     this.cinemaService.getCinemas()
       .pipe(takeUntil(this.notifier$))

@@ -36,14 +36,14 @@ export class SeanceFormComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.store$.dispatch(filmActions.loadFilms());
-    
-    combineLatest([this.cinemaService.getCinemasForAdmin(), this.store$.select(filmSelectors.selectFilms)])
+    combineLatest([
+      this.cinemaService.getCinemasForAdmin(), 
+      this.store$.select(filmSelectors.selectFilmsWithGivenFields('title,_id'))
+    ])
       .pipe(
         filter(([cinemas, films]) => cinemas.length !== 0 && films.length !== 0)
       ).subscribe(
-      ([cinemas, films]) => {
-        console.log('cinemas, films: ', cinemas, films);
+      ([cinemas, films]: [Cinema[], Film[]]) => {
         this.films = films;
         this.cinemas = cinemas;
 

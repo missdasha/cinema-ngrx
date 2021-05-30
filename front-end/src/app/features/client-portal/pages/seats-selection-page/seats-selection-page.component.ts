@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
-import { switchMap, takeUntil } from 'rxjs/operators';
+import { filter, switchMap, takeUntil } from 'rxjs/operators';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
 import { Seance } from '../../../../core/models/seance.model';
@@ -9,10 +9,13 @@ import { Seat } from '../../models/seat.model';
 import { Service } from '../../../../core/models/service.model';
 import { AuthorizationService } from '../../../../core/services/authorization.service';
 import { CinemaService } from '../../../../core/services/cinema.service';
-import { FilmService } from '../../../../core/services/film.service'; 
 import { OrderService } from '../../services/order.service';
 import { getImageSrc } from 'src/app/shared/utils/utils';
 import { seatsNames } from '../../../../core/сonstants/constants';
+import { loadFilmByIdAndQuery } from 'src/app/store/film/film.actions';
+import { Store } from '@ngrx/store';
+import { RootStoreState } from 'src/app/store';
+import { selectFilm } from 'src/app/store/film/film.selectors';
 
 @Component({
   selector: 'app-seats-selection-page',
@@ -51,10 +54,10 @@ export class SeatsSelectionPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private cinemaService: CinemaService,
-    private filmService: FilmService,
     private orderService: OrderService,
     private authorizationService: AuthorizationService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private store$: Store<RootStoreState.State>
   ) { }
 
   ngOnInit() {
@@ -64,9 +67,13 @@ export class SeatsSelectionPageComponent implements OnInit, OnDestroy {
         switchMap((queryParam: { filmId: string, seanceId: string }) => {
           this.filmId = queryParam.filmId;
           this.seanceId = queryParam.seanceId;
-          return this.filmService.getFilmByIdAndQuery(this.filmId);
+          this.store$.dispatch(loadFilmByIdAndQuery({ id: this.filmId }));
+          return this.store$.select(selectFilm).pipe(
+            filter((film: Film) => !!film && film._id === this.filmId)
+          );
         }),
         switchMap((film: Film) => {
+          console.log(film);
           this.film = film;
           this.imageSrc = getImageSrc(film);
           this.seance = this.film.seances.find((seance: Seance) => seance._id === this.seanceId);
