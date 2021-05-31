@@ -23,6 +23,10 @@ export class CinemaService {
     return this.http.post<{ message: string, data: Cinema }>(`${environment.baseUrl}${this.pathToCinemas}${this.pathToNewCinema}`, body);
   }
 
+  getCinemasFullInfo(): Observable<Cinema[]> {
+    return this.http.get<Cinema[]>(`${environment.baseUrl}${this.pathToCinemas}`);
+  }
+
   getCinemas(): Observable<Cinema[]> {
     return this.http.get<Cinema[]>(`${environment.baseUrl}${this.pathToCinemas}${this.selectQuery}name,city,address,-_id`);
   }

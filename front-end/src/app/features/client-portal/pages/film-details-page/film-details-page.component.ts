@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { filter, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { filter, switchMap, takeUntil } from 'rxjs/operators';
+import { CinemaFacadeService } from 'src/app/core/services/cinema-facade.service';
 import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 import { getImageSrc } from 'src/app/shared/utils/utils';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
 import { Seance } from '../../../../core/models/seance.model';
-import { CinemaService } from '../../../../core/services/cinema.service';
 
 @Component({
   selector: 'app-film-details-page',
@@ -23,10 +23,10 @@ export class FilmDetailsPageComponent implements OnInit, OnDestroy {
   imageSrc: string;
 
   constructor(
-    private cinemaService: CinemaService,
     private route: ActivatedRoute,
     private router: Router,
-    private filmFacadeService: FilmFacadeService
+    private filmFacadeService: FilmFacadeService,
+    private cinemaFacadeService: CinemaFacadeService
   ) { }
 
   ngOnInit() {
@@ -48,7 +48,7 @@ export class FilmDetailsPageComponent implements OnInit, OnDestroy {
         switchMap((film: Film) => {
           this.film = film;
           this.imageSrc = getImageSrc(this.film);
-          return this.cinemaService.getCinemas();
+          return this.cinemaFacadeService.selectCinemasWithGivenFields('name,city,address');
         })
       )
       .subscribe((cinemas: Cinema[]) => {

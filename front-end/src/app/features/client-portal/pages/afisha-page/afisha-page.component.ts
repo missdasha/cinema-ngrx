@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
+import { CinemaFacadeService } from 'src/app/core/services/cinema-facade.service';
 import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
@@ -40,7 +41,8 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
     private cinemaService: CinemaService,
     private route: ActivatedRoute,
     private router: Router,
-    private filmFacadeService: FilmFacadeService
+    private filmFacadeService: FilmFacadeService,
+    private cinemaFacadeService: CinemaFacadeService
   ) { }
 
   ngOnInit() {
@@ -59,19 +61,24 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
     });
 
     this.filmFacadeService.selectFilmsWithGivenFieldsAndSeances('_id,title,genres,age,imageSrc,seances')
-      .pipe(takeUntil(this.notifier$))
+      .pipe(
+        takeUntil(this.notifier$),
+        filter((films: Film[]) => !!films.length)
+      )
       .subscribe((films: Film[]) => {
-        if (films.length) {
-          this.films = films;
-          this.filterFilms(this.formControlsConfig);
-          this.filmsTitles = this.films.map((film: Film) => film.title);
-        }
+        this.films = films;
+        this.filterFilms(this.formControlsConfig);
+        this.filmsTitles = this.films.map((film: Film) => film.title);
       });
 
-    this.cinemaService.getCinemas()
-      .pipe(takeUntil(this.notifier$))
+    this.cinemaFacadeService.selectCinemasWithGivenFields('name,city,address')
+      .pipe(
+        takeUntil(this.notifier$),
+        filter((cinemas: Cinema[]) => !!cinemas.length)
+      )
       .subscribe(
         (cinemas: Cinema[]) => {
+          console.log(cinemas);
           this.cinemas = cinemas;
         }
       );

@@ -4,6 +4,7 @@ import * as moment from 'moment';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthorizationService } from '../app/core/services/authorization.service';
+import { CinemaFacadeService } from './core/services/cinema-facade.service';
 import { FilmFacadeService } from './core/services/film-facade.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class AppComponent implements OnDestroy {
 
   constructor(
     private authorizationService: AuthorizationService, 
-    private filmFacadeService: FilmFacadeService
+    private filmFacadeService: FilmFacadeService,
+    private cinemaFacadeService: CinemaFacadeService
   ) {
     this.authorizationService.getIsModalWindowVisible().pipe(takeUntil(this.notifier$))
       .subscribe(
@@ -27,6 +29,7 @@ export class AppComponent implements OnDestroy {
     moment.locale('ru');
 
     this.filmFacadeService.loadFilms();
+    this.cinemaFacadeService.loadCinemas();
   }
 
   ngOnDestroy() {

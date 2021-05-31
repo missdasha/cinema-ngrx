@@ -1,15 +1,12 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
+import { CinemaFacadeService } from 'src/app/core/services/cinema-facade.service';
+import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 import { hasSubstring } from 'src/app/shared/utils/utils';
-import { filmSelectors, RootStoreState } from 'src/app/store';
 import { Cinema } from '../../../../core/models/cinema.model';
-import { Film } from '../../../../core/models/film.model';
-import { CinemaService } from '../../../../core/services/cinema.service';
-import { FilmService } from '../../../../core/services/film.service';
 
 @Component({
   selector: 'app-search',
@@ -28,9 +25,9 @@ export class SearchComponent implements OnInit, OnDestroy {
   searchInput: FormControl = new FormControl();
 
   constructor(
-    private cinemaService: CinemaService, 
     private router: Router,
-    private store$: Store<RootStoreState.State>
+    private filmFacadeService: FilmFacadeService,
+    private cinemaFacadeService: CinemaFacadeService
   ) { }
 
   ngOnInit() {
@@ -47,10 +44,10 @@ export class SearchComponent implements OnInit, OnDestroy {
         }
       });
 
-    this.store$.select(filmSelectors.selectFilmsTitles)
+    this.filmFacadeService.selectFilmsTitles()
       .subscribe((titles: string[]) => this.filmsTitles = titles);
 
-    this.cinemaService.getCinemas()
+    this.cinemaFacadeService.selectCinemasWithGivenFields('name,city,address')
       .pipe(takeUntil(this.notifier$))
       .subscribe(
         (cinemas: Cinema[]) => {

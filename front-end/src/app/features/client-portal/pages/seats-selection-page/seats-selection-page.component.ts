@@ -13,6 +13,7 @@ import { OrderService } from '../../services/order.service';
 import { getImageSrc } from 'src/app/shared/utils/utils';
 import { seatsNames } from '../../../../core/сonstants/constants';
 import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
+import { CinemaFacadeService } from 'src/app/core/services/cinema-facade.service';
 
 @Component({
   selector: 'app-seats-selection-page',
@@ -54,7 +55,8 @@ export class SeatsSelectionPageComponent implements OnInit, OnDestroy {
     private orderService: OrderService,
     private authorizationService: AuthorizationService,
     private route: ActivatedRoute,
-    private filmFacadeService: FilmFacadeService
+    private filmFacadeService: FilmFacadeService,
+    private cinemaFacadeService: CinemaFacadeService
   ) { }
 
   ngOnInit() {
@@ -74,7 +76,7 @@ export class SeatsSelectionPageComponent implements OnInit, OnDestroy {
           this.seance = this.film.seances.find((seance: Seance) => seance._id === this.seanceId);
           this.seance.occupiedSeats
             .forEach((row: boolean[]) => this.reservedSeats.push(new Array(row.length).fill(false)));
-          return this.cinemaService.getCinemaByName(this.seance.cinema.name);
+          return this.cinemaFacadeService.selectCinemaByName(this.seance.cinema.name);
         })
       )
       .subscribe((cinema: Cinema) => {

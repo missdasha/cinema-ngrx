@@ -28,4 +28,8 @@ export class FilmFacadeService {
   selectFilmById(filmId: string) {
     return this.store$.select(filmSelectors.selectFilmById(filmId));
   }
+
+  selectFilmsTitles() {
+    return this.store$.select(filmSelectors.selectFilmsTitles);
+  }
 }
