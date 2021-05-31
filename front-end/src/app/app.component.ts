@@ -4,8 +4,7 @@ import * as moment from 'moment';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthorizationService } from '../app/core/services/authorization.service';
-import { RootStoreState } from './store';
-import { loadFilms } from './store/film/film.actions';
+import { FilmFacadeService } from './core/services/film-facade.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +18,7 @@ export class AppComponent implements OnDestroy {
 
   constructor(
     private authorizationService: AuthorizationService, 
-    private store$: Store<RootStoreState.State>
+    private filmFacadeService: FilmFacadeService
   ) {
     this.authorizationService.getIsModalWindowVisible().pipe(takeUntil(this.notifier$))
       .subscribe(
@@ -27,7 +26,7 @@ export class AppComponent implements OnDestroy {
       );
     moment.locale('ru');
 
-    this.store$.dispatch(loadFilms());
+    this.filmFacadeService.loadFilms();
   }
 
   ngOnDestroy() {

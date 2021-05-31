@@ -10,8 +10,9 @@ import { SeanceService } from '../../../../core/services/seance.service';
 import { Seance } from '../../../../core/models/seance.model';
 import { messages, seatsNames } from '../../../../core/сonstants/constants';
 import { Store } from '@ngrx/store';
-import { filmActions, filmSelectors, RootStoreState } from 'src/app/store';
+import { filmSelectors, RootStoreState } from 'src/app/store';
 import { filter } from 'rxjs/operators';
+import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 
 @Component({
   selector: 'app-seance-form',
@@ -32,17 +33,18 @@ export class SeanceFormComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private cinemaService: CinemaService,
     private seanceService: SeanceService,
-    private store$: Store<RootStoreState.State>
+    private filmFacadeService: FilmFacadeService
   ) { }
 
   ngOnInit() {
     combineLatest([
       this.cinemaService.getCinemasForAdmin(), 
-      this.store$.select(filmSelectors.selectFilmsWithGivenFields('title,_id'))
+      this.filmFacadeService.selectFilmsWithGivenFields('title,_id')
     ])
       .pipe(
-        filter(([cinemas, films]) => cinemas.length !== 0 && films.length !== 0)
-      ).subscribe(
+        filter(([cinemas, films]) => !!cinemas.length && !!films.length)
+      )
+      .subscribe(
       ([cinemas, films]: [Cinema[], Film[]]) => {
         this.films = films;
         this.cinemas = cinemas;

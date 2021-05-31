@@ -12,8 +12,7 @@ import { CinemaService } from '../../../../core/services/cinema.service';
 import { OrderService } from '../../services/order.service';
 import { getImageSrc } from 'src/app/shared/utils/utils';
 import { seatsNames } from '../../../../core/сonstants/constants';
-import { Store } from '@ngrx/store';
-import { filmSelectors, RootStoreState } from 'src/app/store';
+import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 
 @Component({
   selector: 'app-seats-selection-page',
@@ -55,7 +54,7 @@ export class SeatsSelectionPageComponent implements OnInit, OnDestroy {
     private orderService: OrderService,
     private authorizationService: AuthorizationService,
     private route: ActivatedRoute,
-    private store$: Store<RootStoreState.State>
+    private filmFacadeService: FilmFacadeService
   ) { }
 
   ngOnInit() {
@@ -65,12 +64,11 @@ export class SeatsSelectionPageComponent implements OnInit, OnDestroy {
         switchMap((queryParam: { filmId: string, seanceId: string }) => {
           this.filmId = queryParam.filmId;
           this.seanceId = queryParam.seanceId;
-          return this.store$.select(filmSelectors.selectFilmById(this.filmId)).pipe(
+          return this.filmFacadeService.selectFilmById(this.filmId).pipe(
             filter((film: Film) => !!film)
           );
         }),
         switchMap((film: Film) => {
-          console.log(film);
           this.film = film;
           this.imageSrc = getImageSrc(film);
           this.seance = this.film.seances.find((seance: Seance) => seance._id === this.seanceId);

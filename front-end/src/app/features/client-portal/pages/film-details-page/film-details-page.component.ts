@@ -1,10 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterState } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 import { getImageSrc } from 'src/app/shared/utils/utils';
-import { filmSelectors, RootStoreState } from 'src/app/store';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
 import { Seance } from '../../../../core/models/seance.model';
@@ -27,7 +26,7 @@ export class FilmDetailsPageComponent implements OnInit, OnDestroy {
     private cinemaService: CinemaService,
     private route: ActivatedRoute,
     private router: Router,
-    private store$: Store<RootStoreState.State>
+    private filmFacadeService: FilmFacadeService
   ) { }
 
   ngOnInit() {
@@ -42,7 +41,7 @@ export class FilmDetailsPageComponent implements OnInit, OnDestroy {
           else {
             this.seancesIds = queryParam.seancesIds;
           }
-          return this.store$.select(filmSelectors.selectFilmById(this.filmId)).pipe(
+          return this.filmFacadeService.selectFilmById(this.filmId).pipe(
             filter((film: Film) => !!film)
           );
         }),

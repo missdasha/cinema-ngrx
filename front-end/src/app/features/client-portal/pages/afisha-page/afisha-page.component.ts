@@ -1,12 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import * as moment from 'moment';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { RootStoreState } from 'src/app/store';
-import { loadFilmsForAfisha } from 'src/app/store/film/film.actions';
-import { filmSelectors } from 'src/app/store';
+import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
 import { Seance } from '../../../../core/models/seance.model';
@@ -43,14 +40,27 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
     private cinemaService: CinemaService,
     private route: ActivatedRoute,
     private router: Router,
-    private store$: Store<RootStoreState.State>
+    private filmFacadeService: FilmFacadeService
   ) { }
 
   ngOnInit() {
-    this.store$.select(filmSelectors.selectFilmsWithGivenFieldsAndSeances('_id,title,genres,age,imageSrc,seances'))
+    this.route.queryParams
+    .pipe(takeUntil(this.notifier$))
+    .subscribe(queryParam => {
+      if (queryParam.film) {
+        this.formControlsConfig = { ...this.formControlsConfig, film: queryParam.film };
+      }
+      if (queryParam.cinema) {
+        this.formControlsConfig = { ...this.formControlsConfig, cinema: queryParam.cinema };
+      }
+      if (queryParam.city) {
+        this.formControlsConfig = { ...this.formControlsConfig, city: queryParam.city };
+      }
+    });
+
+    this.filmFacadeService.selectFilmsWithGivenFieldsAndSeances('_id,title,genres,age,imageSrc,seances')
       .pipe(takeUntil(this.notifier$))
       .subscribe((films: Film[]) => {
-        console.log(films);
         if (films.length) {
           this.films = films;
           this.filterFilms(this.formControlsConfig);
@@ -65,20 +75,6 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
           this.cinemas = cinemas;
         }
       );
-
-    this.route.queryParams
-      .pipe(takeUntil(this.notifier$))
-      .subscribe(queryParam => {
-        if (queryParam.film) {
-          this.formControlsConfig = { ...this.formControlsConfig, film: queryParam.film };
-        }
-        if (queryParam.cinema) {
-          this.formControlsConfig = { ...this.formControlsConfig, cinema: queryParam.cinema };
-        }
-        if (queryParam.city) {
-          this.formControlsConfig = { ...this.formControlsConfig, city: queryParam.city };
-        }
-      });
   }
 
   ngOnDestroy() {
@@ -147,7 +143,6 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
   }
 
   showMore(film: Film) {
-    console.log(film._id);
     this.router.navigate(['/afisha/details'], {
       queryParams: {
         filmId: film._id,

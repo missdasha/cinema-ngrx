@@ -21,21 +21,10 @@ export const selectFilmsTitles = createSelector(
   (films: Film[]) => films.map((film: Film) => film.title)
 );
 
-export const selectAllFilmsTitles = createSelector(
-  selectFilms,
-  (films: Film[]) => films.map((film: Film) => film.title)
-);
-
-export const selectFilm = createSelector(
-  selectFilmsState,
-  (filmState: FilmState) => filmState.film
-);
-
 export const selectFilmById = (id: string) => {
   return createSelector(
     selectFilms,
     (films: Film[]) => {
-      console.log(films);
       return films.find((film: Film) => film._id === id);
     }
   );
