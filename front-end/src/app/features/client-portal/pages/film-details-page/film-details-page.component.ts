@@ -2,11 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterState } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
-import { filter, switchMap, takeUntil } from 'rxjs/operators';
+import { filter, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { getImageSrc } from 'src/app/shared/utils/utils';
 import { filmSelectors, RootStoreState } from 'src/app/store';
-import { loadFilmById } from 'src/app/store/film/film.actions';
-import { selectFilm } from 'src/app/store/film/film.selectors';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
 import { Seance } from '../../../../core/models/seance.model';
@@ -44,9 +42,8 @@ export class FilmDetailsPageComponent implements OnInit, OnDestroy {
           else {
             this.seancesIds = queryParam.seancesIds;
           }
-          // this.store$.dispatch(loadFilmById({ id: this.filmId }));
           return this.store$.select(filmSelectors.selectFilmById(this.filmId)).pipe(
-            filter((film: Film) => !!film && film._id === this.filmId && film.genres && film.genres.length !== 0)
+            filter((film: Film) => !!film)
           );
         }),
         switchMap((film: Film) => {

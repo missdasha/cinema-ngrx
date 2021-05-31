@@ -1,6 +1,6 @@
 import { getImageSrc, getTimestamp, hasSubstring } from './utils';
 import * as films from '../../assets/static/films.json';
-import { Film } from 'src/app/features/client-portal/models/film.model';
+import { Film } from '../../core/models/film.model';
 
 describe('Utils', () => {
     describe('#hasSubstring', () => {

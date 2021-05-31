@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Film } from '../../../../core/models/film.model';
 import { trigger, transition, query, style, animate, group } from '@angular/animations';
-import { environment } from 'src/environments/environment';
+import { getImageSrc } from 'src/app/shared/utils/utils';
 
 const left = [
   query('.film__info', style({width: '100%'}), { optional: true }),
@@ -44,7 +44,7 @@ export class LargeSliderComponent {
   currIndex = 0;
 
   getImageUrl(film: Film) {
-    return `url(${environment.imageUrl}${film.imageSrc})`;
+    return `url(${getImageSrc(film)})`;
   }
 
   showPreviousSlide() {

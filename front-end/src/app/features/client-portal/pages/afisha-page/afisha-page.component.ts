@@ -47,7 +47,7 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.store$.select(filmSelectors.selectFilmsWithGivenFieldsAndSeances('title,genres,age,imageSrc,seances'))
+    this.store$.select(filmSelectors.selectFilmsWithGivenFieldsAndSeances('_id,title,genres,age,imageSrc,seances'))
       .pipe(takeUntil(this.notifier$))
       .subscribe((films: Film[]) => {
         console.log(films);
@@ -147,6 +147,7 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
   }
 
   showMore(film: Film) {
+    console.log(film._id);
     this.router.navigate(['/afisha/details'], {
       queryParams: {
         filmId: film._id,
