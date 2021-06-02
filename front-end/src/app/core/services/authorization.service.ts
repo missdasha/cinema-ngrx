@@ -26,15 +26,15 @@ export class AuthorizationService {
   private modalWindowVisibilitySubject$ = new BehaviorSubject<boolean>(false);
   isModalWindowVisible$ = this.modalWindowVisibilitySubject$.asObservable();
 
-  getIsUserAuthorized() {
+  getIsUserAuthorized(): Observable<boolean> {
     return this.isUserAuthorized$;
   }
 
-  getIsLogin() {
+  getIsLogin(): Observable<boolean> {
     return this.isLogin$;
   }
 
-  getIsModalWindowVisible() {
+  getIsModalWindowVisible(): Observable<boolean> {
     return this.isModalWindowVisible$;
   }
 

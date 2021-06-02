@@ -13,10 +13,7 @@ export class MainPageComponent implements OnInit {
   films$: Observable<Film[]>;
   newestFilms$: Observable<Film[]>;
 
-  constructor(
-    private router: Router, 
-    private filmFacadeService: FilmFacadeService
-  ) { }
+  constructor(private router: Router, private filmFacadeService: FilmFacadeService) { }
 
   ngOnInit() {
     this.films$ = this.filmFacadeService.selectFilmsWithGivenFieldsAndSeances('_id,title,genres,age,imageSrc');

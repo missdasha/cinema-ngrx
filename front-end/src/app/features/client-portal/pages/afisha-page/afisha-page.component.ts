@@ -8,7 +8,6 @@ import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
 import { Seance } from '../../../../core/models/seance.model';
-import { CinemaService } from '../../../../core/services/cinema.service';
 
 export const defaultControlsValues = {
   city: 'Все города',
@@ -38,7 +37,6 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
   cinemas: Cinema[];
 
   constructor(
-    private cinemaService: CinemaService,
     private route: ActivatedRoute,
     private router: Router,
     private filmFacadeService: FilmFacadeService,
