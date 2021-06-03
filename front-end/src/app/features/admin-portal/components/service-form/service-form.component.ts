@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Service } from '../../../../core/models/service.model.js';
-import { AdditionalService } from '../../../../core/services/additional.service';
+import { ProductService } from '../../../../core/services/product.service';
 import { messages } from '../../../../core/сonstants/constants';
 
 @Component({
@@ -12,7 +12,7 @@ import { messages } from '../../../../core/сonstants/constants';
 export class ServiceFormComponent {
   serviceForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private service: AdditionalService) {
+  constructor(private fb: FormBuilder, private productService: ProductService) {
     this.serviceForm = fb.group({
       name: ['', [
         Validators.required,
@@ -52,7 +52,7 @@ export class ServiceFormComponent {
         price: this.serviceForm.controls['price'].value,
         quantity: this.serviceForm.controls['quantity'].value.replace(' ', '')
       };
-      this.service.postService(service).subscribe(
+      this.productService.postService(service).subscribe(
         (info: { message: string, data: string }) => {
           alert(messages[info.message]);
           this.serviceForm.reset();

@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Service } from '../../../../core/models/service.model';
-import { AdditionalService } from '../../../../core/services/additional.service';
+import { ProductService } from '../../../../core/services/product.service';
 import { CinemaService } from '../../../../core/services/cinema.service';
 import { messages } from '../../../../core/сonstants/constants';
 
@@ -24,11 +24,11 @@ export class CinemaFormComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private cinemaService: CinemaService,
-    private service: AdditionalService
+    private productService: ProductService
   ) { }
 
   ngOnInit() {
-    this.service.getServices()
+    this.productService.getServices()
     .pipe(takeUntil(this.notifier$))
     .subscribe(
       (services: Service[]) => {

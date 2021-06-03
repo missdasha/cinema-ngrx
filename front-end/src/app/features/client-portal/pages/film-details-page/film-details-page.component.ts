@@ -39,7 +39,7 @@ export class FilmDetailsPageComponent implements OnInit, OnDestroy {
             this.seancesIds.push(queryParam.seancesIds);
           }
           else {
-            this.seancesIds = queryParam.seancesIds;
+            this.seancesIds = [...queryParam.seancesIds];
           }
           return this.filmFacadeService.selectFilmById(this.filmId).pipe(
             filter((film: Film) => !!film)

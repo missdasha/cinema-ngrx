@@ -7,7 +7,7 @@ import { Service } from '../models/service.model.js';
 @Injectable({
   providedIn: 'root'
 })
-export class AdditionalService {
+export class ProductService {
   pathToServices = 'services/';
   pathToNewService = 'new';
 
