@@ -14,8 +14,8 @@ export class CinemaFacadeService {
     this.store$.dispatch(cinemaActions.loadCinemas());
   }
 
-  selectCinemasWithGivenFields(fields: string) {
-    return this.store$.select(cinemaSelectors.selectCinemasWithGivenFields(fields));
+  selectCinemas() {
+    return this.store$.select(cinemaSelectors.selectCinemas);
   }
 
   selectCinemaByName(name: string) {

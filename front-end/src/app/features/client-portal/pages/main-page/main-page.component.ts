@@ -16,7 +16,7 @@ export class MainPageComponent implements OnInit {
   constructor(private router: Router, private filmFacadeService: FilmFacadeService) { }
 
   ngOnInit() {
-    this.films$ = this.filmFacadeService.selectFilmsWithGivenFieldsAndSeances('_id,title,genres,age,imageSrc');
+    this.films$ = this.filmFacadeService.selectFilmsWithSeances();
     this.newestFilms$ = this.filmFacadeService.selectNewestFilms();
   }
 

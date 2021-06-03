@@ -2,7 +2,6 @@ import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { FilmState } from './film.state';
 import { State } from '../state';
 import { Film } from 'src/app/core/models/film.model';
-import { chooseFields } from 'src/app/shared/utils/utils';
 
 export const selectFilmsState = createFeatureSelector<State, FilmState>('films');
 
@@ -30,28 +29,9 @@ export const selectFilmById = (id: string) => {
   );
 }; 
 
-export const selectFilmsWithGivenFieldsAndSeances = (fields: string) => {
-  return createSelector(
-    selectFilmsWithSeances,
-    (films: Film[]) => chooseFields(fields, films)
-  );
-};
-
-export const selectFilmsWithGivenFields = (fields: string) => {
-  return createSelector(
-    selectFilms,
-    (films: Film[]) => chooseFields(fields, films)
-  );
-};
-
 export const selectNewestFilms = createSelector(
   selectFilmsWithSeances,
-  (films: Film[]) => {
-    const fields = '_id,title,genres,age,imageSrc';
-    const newestFilms = JSON.parse(JSON.stringify(films))
+  (films: Film[]) => JSON.parse(JSON.stringify(films))
                             .sort((a, b) => a.startDate > b.startDate ? -1 : 1)
-                            .slice(0, 3);
-    return chooseFields(fields, newestFilms);
-  }
+                            .slice(0, 3)
 );
-

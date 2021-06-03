@@ -13,12 +13,12 @@ export class FilmFacadeService {
     this.store$.dispatch(filmActions.loadFilms());
   }
 
-  selectFilmsWithGivenFieldsAndSeances(fields: string) {
-    return this.store$.select(filmSelectors.selectFilmsWithGivenFieldsAndSeances(fields));
+  selectFilms() {
+    return this.store$.select(filmSelectors.selectFilms);
   }
 
-  selectFilmsWithGivenFields(fields: string) {
-    return this.store$.select(filmSelectors.selectFilmsWithGivenFields(fields));
+  selectFilmsWithSeances() {
+    return this.store$.select(filmSelectors.selectFilmsWithSeances);
   }
 
   selectNewestFilms() {

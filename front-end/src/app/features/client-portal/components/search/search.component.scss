@@ -54,20 +54,24 @@
   margin: 0;
 
   &__item {
-    color: $light-color;
     font-size: 24px;
     list-style-type: none;
     padding-bottom: 10px;
+  }
+}
 
-    &:hover {
-      color: $bright-color;
-      cursor: pointer;
-    }
+.link {
+  color: $light-color;
+
+  &:hover {
+    color: $bright-color;
+    cursor: pointer;
   }
 }
 
 .icon {
   color: $bright-color;
+  cursor: pointer;
   font-size: 18px;
   padding-right: 10px;
 }

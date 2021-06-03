@@ -8,17 +8,17 @@
     <div class="search__results">
       <ul class="list">
         <li class="list__item" *ngFor="let film of foundFilms">
-          <i class="icon fas fa-film"></i><a (click)="chooseFilm(film)">{{film}}</a>
+          <i class="icon fas fa-film"></i><a class="link" (click)="chooseFilm(film)">{{film}}</a>
         </li>
       </ul>
       <ul class="list">
         <li class="list__item" *ngFor="let cinema of foundCinemas">
-          <i class="icon fas fa-warehouse"></i><a (click)="chooseCinema(cinema)">{{cinema}}</a>
+          <i class="icon fas fa-warehouse"></i><a class="link" (click)="chooseCinema(cinema)">{{cinema}}</a>
         </li>
       </ul>
       <ul class="list">
         <li class="list__item" *ngFor="let city of foundCities">
-          <i class="icon fas fa-city"></i><a (click)="chooseCity(city)">{{city}}</a>
+          <i class="icon fas fa-city"></i><a class="link" (click)="chooseCity(city)">{{city}}</a>
         </li>
       </ul>
     </div>

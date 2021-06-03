@@ -36,8 +36,8 @@ export class SeanceFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     combineLatest([
-      this.cinemaFacadeService.selectCinemasWithGivenFields('name,city,address,halls,_id'), 
-      this.filmFacadeService.selectFilmsWithGivenFields('title,_id')
+      this.cinemaFacadeService.selectCinemas(), 
+      this.filmFacadeService.selectFilms()
     ])
       .pipe(
         filter(([cinemas, films]) => !!cinemas.length && !!films.length),

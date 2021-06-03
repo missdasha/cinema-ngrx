@@ -47,7 +47,7 @@ export class FilmDetailsPageComponent implements OnInit, OnDestroy {
         switchMap((film: Film) => {
           this.film = film;
           this.imageSrc = getImageSrc(this.film);
-          return this.cinemaFacadeService.selectCinemasWithGivenFields('name,city,address');
+          return this.cinemaFacadeService.selectCinemas();
         })
       )
       .subscribe((cinemas: Cinema[]) => {

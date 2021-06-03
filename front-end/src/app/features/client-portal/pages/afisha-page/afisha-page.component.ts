@@ -58,7 +58,7 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.filmFacadeService.selectFilmsWithGivenFieldsAndSeances('_id,title,genres,age,imageSrc,seances')
+    this.filmFacadeService.selectFilmsWithSeances()
       .pipe(
         takeUntil(this.notifier$),
         filter((films: Film[]) => !!films.length)
@@ -69,7 +69,7 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
         this.filmsTitles = this.films.map((film: Film) => film.title);
       });
 
-    this.cinemaFacadeService.selectCinemasWithGivenFields('name,city,address')
+    this.cinemaFacadeService.selectCinemas()
       .pipe(
         takeUntil(this.notifier$),
         filter((cinemas: Cinema[]) => !!cinemas.length)

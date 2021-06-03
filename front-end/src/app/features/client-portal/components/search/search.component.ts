@@ -48,7 +48,7 @@ export class SearchComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.notifier$))
       .subscribe((titles: string[]) => this.filmsTitles = titles);
 
-    this.cinemaFacadeService.selectCinemasWithGivenFields('name,city,address')
+    this.cinemaFacadeService.selectCinemas()
       .pipe(takeUntil(this.notifier$))
       .subscribe(
         (cinemas: Cinema[]) => {

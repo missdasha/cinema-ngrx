@@ -15,7 +15,7 @@ export class CinemasPageComponent implements OnInit {
   constructor(private cinemaFacadeService: CinemaFacadeService, private router: Router) { }
 
   ngOnInit() {
-    this.cinemas$ = this.cinemaFacadeService.selectCinemasWithGivenFields('name,city,address');
+    this.cinemas$ = this.cinemaFacadeService.selectCinemas();
   }
 
   showAfisha(cinema: string) {
