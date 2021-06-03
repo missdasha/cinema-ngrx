@@ -41,10 +41,9 @@ export class FilmDetailsPageComponent implements OnInit, OnDestroy {
           else {
             this.seancesIds = [...queryParam.seancesIds];
           }
-          return this.filmFacadeService.selectFilmById(this.filmId).pipe(
-            filter((film: Film) => !!film)
-          );
+          return this.filmFacadeService.selectFilmById(this.filmId);
         }),
+        filter((film: Film) => !!film),
         switchMap((film: Film) => {
           this.film = film;
           this.imageSrc = getImageSrc(this.film);

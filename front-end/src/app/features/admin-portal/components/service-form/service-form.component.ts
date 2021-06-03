@@ -12,8 +12,10 @@ import { messages } from '../../../../core/сonstants/constants';
 export class ServiceFormComponent {
   serviceForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private productService: ProductService) {
-    this.serviceForm = fb.group({
+  constructor(private fb: FormBuilder, private productService: ProductService) { }
+
+  ngOnInit() {
+    this.serviceForm = this.fb.group({
       name: ['', [
         Validators.required,
       ]],

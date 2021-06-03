@@ -8,7 +8,6 @@ import { Seance } from '../../../../core/models/seance.model';
 import { Seat } from '../../models/seat.model';
 import { Service } from '../../../../core/models/service.model';
 import { AuthorizationService } from '../../../../core/services/authorization.service';
-import { CinemaService } from '../../../../core/services/cinema.service';
 import { OrderService } from '../../services/order.service';
 import { getImageSrc } from 'src/app/shared/utils/utils';
 import { seatsNames } from '../../../../core/сonstants/constants';
@@ -51,7 +50,6 @@ export class SeatsSelectionPageComponent implements OnInit, OnDestroy {
   imageSrc: string;
 
   constructor(
-    private cinemaService: CinemaService,
     private orderService: OrderService,
     private authorizationService: AuthorizationService,
     private route: ActivatedRoute,
@@ -66,10 +64,9 @@ export class SeatsSelectionPageComponent implements OnInit, OnDestroy {
         switchMap((queryParam: { filmId: string, seanceId: string }) => {
           this.filmId = queryParam.filmId;
           this.seanceId = queryParam.seanceId;
-          return this.filmFacadeService.selectFilmById(this.filmId).pipe(
-            filter((film: Film) => !!film)
-          );
+          return this.filmFacadeService.selectFilmById(this.filmId);
         }),
+        filter((film: Film) => !!film),
         switchMap((film: Film) => {
           this.film = film;
           this.imageSrc = getImageSrc(film);

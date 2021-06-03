@@ -76,7 +76,6 @@ export class AfishaPageComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         (cinemas: Cinema[]) => {
-          console.log(cinemas);
           this.cinemas = cinemas;
         }
       );

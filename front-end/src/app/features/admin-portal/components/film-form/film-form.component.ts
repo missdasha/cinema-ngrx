@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { Film } from '../../../../core/models/film.model';
@@ -10,7 +10,7 @@ import { getTimestamp } from '../../../../shared/utils/utils';
   templateUrl: './film-form.component.html',
   styleUrls: ['./film-form.component.scss', '../../admin-form.scss']
 })
-export class FilmFormComponent {
+export class FilmFormComponent implements OnInit{
   ages = [0, 6, 12, 16, 18];
   genres = ['комедия', 'драма', 'мелодрама', 'боевик', 'триллер', 'мультфильм', 'ужасы', 'приключения', 'фэнтези'];
   filmForm: FormGroup = new FormGroup({});
@@ -19,8 +19,10 @@ export class FilmFormComponent {
   maxDate = moment().add(3, 'M').unix();
   image: File;
 
-  constructor(private fb: FormBuilder, private filmService: FilmService) {
-    this.filmForm = fb.group({
+  constructor(private fb: FormBuilder, private filmService: FilmService) { }
+
+  ngOnInit() {
+    this.filmForm = this.fb.group({
       title: ['', [
         Validators.required
       ]],
@@ -40,7 +42,7 @@ export class FilmFormComponent {
       imageSrc: ['', [
         Validators.required
       ]],
-      genres: fb.array(Array(this.genres.length).fill(false))
+      genres: this.fb.array(Array(this.genres.length).fill(false))
     }, {
       validator: this.atLeastOneCheckboxCheckedValidator('genres')
     });

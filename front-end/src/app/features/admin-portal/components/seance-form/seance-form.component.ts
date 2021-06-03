@@ -4,12 +4,11 @@ import { combineLatest, Subject } from 'rxjs';
 import * as moment from 'moment';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
-import { CinemaService } from '../../../../core/services/cinema.service';
 import { getTimestamp } from 'src/app/shared/utils/utils';
 import { SeanceService } from '../../../../core/services/seance.service';
 import { Seance } from '../../../../core/models/seance.model';
 import { messages, seatsNames } from '../../../../core/сonstants/constants';
-import { filter } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 import { CinemaFacadeService } from 'src/app/core/services/cinema-facade.service';
 
@@ -30,7 +29,6 @@ export class SeanceFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private cinemaService: CinemaService,
     private seanceService: SeanceService,
     private filmFacadeService: FilmFacadeService,
     private cinemaFacadeService: CinemaFacadeService
@@ -38,11 +36,12 @@ export class SeanceFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     combineLatest([
-      this.cinemaFacadeService.selectCinemasWithGivenFields('name,city,address,halls'), 
+      this.cinemaFacadeService.selectCinemasWithGivenFields('name,city,address,halls,_id'), 
       this.filmFacadeService.selectFilmsWithGivenFields('title,_id')
     ])
       .pipe(
-        filter(([cinemas, films]) => !!cinemas.length && !!films.length)
+        filter(([cinemas, films]) => !!cinemas.length && !!films.length),
+        takeUntil(this.notifier$)
       )
       .subscribe(
       ([cinemas, films]: [Cinema[], Film[]]) => {
