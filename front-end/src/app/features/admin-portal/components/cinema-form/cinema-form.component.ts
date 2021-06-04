@@ -1,12 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Service } from '../../../../core/models/service.model';
 import { ProductService } from '../../../../core/services/product.service';
 import { CinemaService } from '../../../../core/services/cinema.service';
 import { messages } from '../../../../core/сonstants/constants';
+import { CinemaFacadeService } from 'src/app/core/services/cinema-facade.service';
 
 @Component({
   selector: 'app-cinema-form',
@@ -24,6 +25,7 @@ export class CinemaFormComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private cinemaService: CinemaService,
+    private cinemaFacadeService: CinemaFacadeService,
     private productService: ProductService
   ) { }
 
@@ -56,10 +58,42 @@ export class CinemaFormComponent implements OnInit, OnDestroy {
         this.isLoaded = true;
       }
     );
+
+    this.cinemaFacadeService.selectSuccessMessage()
+      .pipe(
+        filter(message => !!message),
+        takeUntil(this.notifier$)
+      )
+      .subscribe(
+        (message: string) => {
+          console.log(message);
+          alert(messages[message]);
+          this.cinemaForm.reset();
+        }
+      );
+    
+    this.cinemaFacadeService.selectError()
+      .pipe(
+        filter(error => !!error),
+        takeUntil(this.notifier$)
+      )
+      .subscribe(
+        (e) => {
+          console.log(e);
+          if (e.error) {
+            alert(messages[e.error.message]);
+          }
+          else {
+            alert('Извините, произошла ошибка');
+            console.error(e);
+          }
+        }
+      );        
   }
 
   ngOnDestroy() {
     this.notifier$.next();
+    this.cinemaFacadeService.reset();
   }
 
   get controls(): { [key: string]: AbstractControl } {
@@ -109,21 +143,54 @@ export class CinemaFormComponent implements OnInit, OnDestroy {
         halls
       };
 
-      this.cinemaService.postCinema(cinema).subscribe(
-        (info: { message: string, data: Cinema }) => {
-          alert(messages[info.message]);
-          this.cinemaForm.reset();
-        },
-        (e) => {
-          if (e.error) {
-            alert(messages[e.error.message]);
-          }
-          else {
-            alert('Извините, произошла ошибка');
-            console.error(e);
-          }
-        }
-      );
+      this.cinemaFacadeService.addCinema(cinema);
+
+      // this.cinemaFacadeService.selectSuccessMessage()
+      //   .pipe(
+      //     filter(message => !!message),
+      //     takeUntil(this.notifier$)
+      //   )
+      //   .subscribe(
+      //     (message: string) => {
+      //       console.log(message);
+      //       alert(messages[message]);
+      //       this.cinemaForm.reset();
+      //     }
+      //   );
+
+      // this.cinemaFacadeService.selectError()
+      //   .pipe(
+      //     filter(error => !!error),
+      //     takeUntil(this.notifier$)
+      //   )
+      //   .subscribe(
+      //     (e) => {
+      //       console.log(e);
+      //       if (e.error) {
+      //         alert(messages[e.error.message]);
+      //       }
+      //       else {
+      //          alert('Извините, произошла ошибка');
+      //          console.error(e);
+      //       }
+      //     }
+      //   );
+        
+      // this.cinemaService.postCinema(cinema).subscribe(
+      //   (info: { message: string, data: Cinema }) => {
+      //     alert(messages[info.message]);
+      //     this.cinemaForm.reset();
+      //   },
+      //   (e) => {
+      //     if (e.error) {
+      //       alert(messages[e.error.message]);
+      //     }
+      //     else {
+      //       alert('Извините, произошла ошибка');
+      //       console.error(e);
+      //     }
+      //   }
+      // );
     }
   }
 }

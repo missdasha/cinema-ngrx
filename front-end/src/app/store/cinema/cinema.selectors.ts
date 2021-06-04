@@ -19,5 +19,13 @@ export const selectCinemaByName = (name: string) => {
   );
 }; 
 
+export const selectSuccessMessage = createSelector(
+  selectCinemasState,
+  (cinemaState: CinemaState) => cinemaState.successMessage
+);
 
+export const selectError = createSelector(
+  selectCinemasState,
+  (cinemaState: CinemaState) => cinemaState.error
+);
 

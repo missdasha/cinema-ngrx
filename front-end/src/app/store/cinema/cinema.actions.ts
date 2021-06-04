@@ -10,3 +10,21 @@ export const loadCinemasSuccess = createAction(
   props<{ cinemas: Cinema[] }>()
 );
 
+export const addCinema = createAction(
+  '[Cinemas] Add Cinema',
+  props<{ cinema: Cinema }>()
+);
+
+export const addCinemaSuccess = createAction(
+  '[Cinemas] Add Cinema Success',
+  props<{ cinema: Cinema, message: string }>()
+);
+
+export const addCinemaFailure = createAction(
+  '[Cinemas] Add Cinema Failure',
+  props<{ error: any }>()
+);
+
+export const reset = createAction(
+  '[Cinemas] Reset Message and Error'
+);

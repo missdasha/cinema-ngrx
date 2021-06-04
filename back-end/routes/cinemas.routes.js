@@ -16,12 +16,12 @@ const passport = require('passport');
 router.post('/new', passport.authenticate('jwt', { session: false }), giveAccessTo([ADMIN]), 
 async (req, res, next) => {
   try {
-    const { name, address } = req.body;
+    const { name, address, city } = req.body;
     const cinemaWithDuplicatedName = await Cinema.findOne({ name });
     if (cinemaWithDuplicatedName) {
       return next(new OperationalError(DUPLICATED_CINEMA_NAME_MESSAGE, 403));
     }
-    const cinemaWithDuplicatedAddress = await Cinema.findOne({ address });
+    const cinemaWithDuplicatedAddress = await Cinema.findOne({ address, city });
     if (cinemaWithDuplicatedAddress) {
       return next(new OperationalError(DUPLICATED_CINEMA_ADDRESS_MESSAGE, 403));
     }
