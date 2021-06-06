@@ -28,4 +28,3 @@ export const selectError = createSelector(
   selectCinemasState,
   (cinemaState: CinemaState) => cinemaState.error
 );
-

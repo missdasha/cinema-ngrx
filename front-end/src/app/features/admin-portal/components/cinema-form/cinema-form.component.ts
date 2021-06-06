@@ -5,8 +5,7 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Service } from '../../../../core/models/service.model';
 import { ProductService } from '../../../../core/services/product.service';
-import { CinemaService } from '../../../../core/services/cinema.service';
-import { messages } from '../../../../core/сonstants/constants';
+import { messages, serverErrorCode } from '../../../../core/сonstants/constants';
 import { CinemaFacadeService } from 'src/app/core/services/cinema-facade.service';
 
 @Component({
@@ -24,7 +23,6 @@ export class CinemaFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private cinemaService: CinemaService,
     private cinemaFacadeService: CinemaFacadeService,
     private productService: ProductService
   ) { }
@@ -66,7 +64,6 @@ export class CinemaFormComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         (message: string) => {
-          console.log(message);
           alert(messages[message]);
           this.cinemaForm.reset();
         }
@@ -79,8 +76,7 @@ export class CinemaFormComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         (e) => {
-          console.log(e);
-          if (e.error) {
+          if (e.error && e.status !== serverErrorCode) {
             alert(messages[e.error.message]);
           }
           else {
@@ -144,53 +140,6 @@ export class CinemaFormComponent implements OnInit, OnDestroy {
       };
 
       this.cinemaFacadeService.addCinema(cinema);
-
-      // this.cinemaFacadeService.selectSuccessMessage()
-      //   .pipe(
-      //     filter(message => !!message),
-      //     takeUntil(this.notifier$)
-      //   )
-      //   .subscribe(
-      //     (message: string) => {
-      //       console.log(message);
-      //       alert(messages[message]);
-      //       this.cinemaForm.reset();
-      //     }
-      //   );
-
-      // this.cinemaFacadeService.selectError()
-      //   .pipe(
-      //     filter(error => !!error),
-      //     takeUntil(this.notifier$)
-      //   )
-      //   .subscribe(
-      //     (e) => {
-      //       console.log(e);
-      //       if (e.error) {
-      //         alert(messages[e.error.message]);
-      //       }
-      //       else {
-      //          alert('Извините, произошла ошибка');
-      //          console.error(e);
-      //       }
-      //     }
-      //   );
-        
-      // this.cinemaService.postCinema(cinema).subscribe(
-      //   (info: { message: string, data: Cinema }) => {
-      //     alert(messages[info.message]);
-      //     this.cinemaForm.reset();
-      //   },
-      //   (e) => {
-      //     if (e.error) {
-      //       alert(messages[e.error.message]);
-      //     }
-      //     else {
-      //       alert('Извините, произошла ошибка');
-      //       console.error(e);
-      //     }
-      //   }
-      // );
     }
   }
 }

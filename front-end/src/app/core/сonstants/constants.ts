@@ -25,3 +25,5 @@ export const seatsNames = {
   'vip': 'VIP',
   'loveSeats': 'Love Seats'
 };
+
+export const serverErrorCode = 500;
