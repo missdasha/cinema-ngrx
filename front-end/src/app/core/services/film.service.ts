@@ -15,8 +15,8 @@ export class FilmService {
 
   constructor(private http: HttpClient) { }
 
-  postFilm(form): Observable<{ message: string, data: Film }> {
-    return this.http.post<{ message: string, data: Film }>(`${environment.baseUrl}${this.pathToFilms}${this.pathToNewFilm}`, form);
+  postFilm(form): Observable<{ message: string, film: Film }> {
+    return this.http.post<{ message: string, film: Film }>(`${environment.baseUrl}${this.pathToFilms}${this.pathToNewFilm}`, form);
   }
 
   getFilmsFullInfo(): Observable<Film[]> {

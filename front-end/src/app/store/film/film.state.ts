@@ -1,9 +1,13 @@
 import { Film } from "src/app/core/models/film.model";
 
 export interface FilmState {
-  films: Film[]
+  films: Film[],
+  successMessage: string,
+  error: any
 };
 
 export const initialFilmState: FilmState = {
-  films: []
+  films: [],
+  successMessage: '', 
+  error: null
 };

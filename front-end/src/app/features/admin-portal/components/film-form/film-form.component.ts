@@ -1,17 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import * as moment from 'moment';
+import { Subject } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
+import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 import { Film } from '../../../../core/models/film.model';
-import { FilmService } from '../../../../core/services/film.service';
-import { messages } from '../../../../core/сonstants/constants';
+import { messages, serverErrorCode } from '../../../../core/сonstants/constants';
 import { getTimestamp } from '../../../../shared/utils/utils';
 @Component({
   selector: 'app-film-form',
   templateUrl: './film-form.component.html',
   styleUrls: ['./film-form.component.scss', '../../admin-form.scss']
 })
-export class FilmFormComponent implements OnInit{
-  ages = [0, 6, 12, 16, 18];
+export class FilmFormComponent implements OnInit, OnDestroy {
+  private notifier$ = new Subject();
+  private _ages = [0, 6, 12, 16, 18];
+  public get ages() {
+    return this._ages;
+  }
+  public set ages(value) {
+    this._ages = value;
+  }
   genres = ['комедия', 'драма', 'мелодрама', 'боевик', 'триллер', 'мультфильм', 'ужасы', 'приключения', 'фэнтези'];
   filmForm: FormGroup = new FormGroup({});
   todayDate = moment().unix();
@@ -19,7 +28,10 @@ export class FilmFormComponent implements OnInit{
   maxDate = moment().add(3, 'M').unix();
   image: File;
 
-  constructor(private fb: FormBuilder, private filmService: FilmService) { }
+  constructor(
+    private fb: FormBuilder, 
+    private filmFacadeService: FilmFacadeService
+  ) { }
 
   ngOnInit() {
     this.filmForm = this.fb.group({
@@ -46,6 +58,43 @@ export class FilmFormComponent implements OnInit{
     }, {
       validator: this.atLeastOneCheckboxCheckedValidator('genres')
     });
+
+    this.filmFacadeService.selectSuccessMessage()
+      .pipe(
+        filter(message => !!message),
+        takeUntil(this.notifier$)
+      )
+      .subscribe(
+        (message: string) => {
+          alert(messages[message]);
+          this.filmForm.reset();
+          this.controls.age.setValue(0);
+          this.minDate = this.todayDate;
+          this.maxDate = moment().add(3, 'M').unix();
+        }
+      );
+    
+    this.filmFacadeService.selectError()
+      .pipe(
+        filter(error => !!error),
+        takeUntil(this.notifier$)
+      )
+      .subscribe(
+        (e) => {
+          if (e.error && e.status !== serverErrorCode) {
+            alert(messages[e.error.message]);
+          }
+          else {
+            alert('Извините, произошла ошибка');
+            console.error(e);
+          }
+        }
+      );
+  }
+
+  ngOnDestroy() {
+    this.notifier$.next();
+    this.filmFacadeService.reset();
   }
 
   get controls(): { [key: string]: AbstractControl } {
@@ -106,24 +155,7 @@ export class FilmFormComponent implements OnInit{
       })
       form.append('file', this.image, this.image.name);
 
-      this.filmService.postFilm(form).subscribe(
-        (info: { message: string, data: Film }) => {
-          alert(messages[info.message]);
-          this.filmForm.reset();
-          this.controls.age.setValue(0);
-          this.minDate = this.todayDate;
-          this.maxDate = moment().add(3, 'M').unix();
-        },
-        (e) => {
-          if (e.error) {
-            alert(messages[e.error.message]);
-          }
-          else {
-            alert('Извините, произошла ошибка');
-            console.error(e);
-          }
-        }
-      );
+      this.filmFacadeService.addFilm(form);
     }
   }
 }

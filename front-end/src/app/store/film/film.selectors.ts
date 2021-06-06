@@ -35,3 +35,13 @@ export const selectNewestFilms = createSelector(
                             .sort((a, b) => a.startDate > b.startDate ? -1 : 1)
                             .slice(0, 3)
 );
+
+export const selectSuccessMessage = createSelector(
+  selectFilmsState,
+  (filmState: FilmState) => filmState.successMessage
+);
+
+export const selectError = createSelector(
+  selectFilmsState,
+  (filmState: FilmState) => filmState.error
+);

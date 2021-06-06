@@ -45,7 +45,7 @@ async (req, res, next) => {
     delete film.file;
     const newFilm = new Film(film);
     const savedFilm = await newFilm.save();
-    res.status(201).json({ message: FILMS_IS_ADDED_MESSAGE, data: { savedFilm, file: req.body.file }});
+    res.status(201).json({ message: FILMS_IS_ADDED_MESSAGE, film: savedFilm });
   }
   catch (e) {
     console.log(e);

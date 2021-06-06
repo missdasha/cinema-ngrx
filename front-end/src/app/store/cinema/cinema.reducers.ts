@@ -6,7 +6,6 @@ export const cinemaReducer = createReducer(
   initialCinemaState,
   on(loadCinemasSuccess, (state, { cinemas }) => ({ ...state, cinemas })),
   on(addCinemaSuccess, (state, { cinema, message }) => ({ 
-    ...state, 
     cinemas: JSON.parse(JSON.stringify(state.cinemas)).concat(cinema),
     successMessage: message,
     error: null

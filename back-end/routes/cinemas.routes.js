@@ -28,7 +28,7 @@ async (req, res, next) => {
 
     const newCinema = new Cinema(req.body);
     const cinema = await newCinema.save();
-    res.status(201).json({ message: CINEMA_IS_ADDED_MESSAGE, data: cinema });
+    res.status(201).json({ message: CINEMA_IS_ADDED_MESSAGE, cinema });
   }
   catch (e) {
     console.log(e);

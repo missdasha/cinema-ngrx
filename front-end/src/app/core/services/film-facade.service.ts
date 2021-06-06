@@ -34,4 +34,20 @@ export class FilmFacadeService {
   selectFilmsTitles(): Observable<string[]> {
     return this.store$.select(filmSelectors.selectFilmsTitles);
   }
+
+  addFilm(film: FormData) {
+    this.store$.dispatch(filmActions.addFilm({ film }));
+  }
+
+  selectSuccessMessage(): Observable<string> {
+    return this.store$.select(filmSelectors.selectSuccessMessage);
+  }
+
+  selectError(): Observable<any> {
+    return this.store$.select(filmSelectors.selectError);
+  }
+
+  reset() {
+    this.store$.dispatch(filmActions.reset());
+  }
 }

@@ -12,15 +12,19 @@ export const loadFilmsSuccess = createAction(
 
 export const addFilm = createAction(
   '[Films] Add Film',
-  props<{ film: Film }>()
+  props<{ film: FormData }>()
 );
 
 export const addFilmSuccess = createAction(
   '[Films] Add Film Success',
-  props<{ film: Film }>()
+  props<{ film: Film, message: string }>()
 );
 
 export const addFilmFailure = createAction(
   '[Films] Add Film Failure',
-  props<{ message: any }>()
+  props<{ error: any }>()
+);
+
+export const reset = createAction(
+  '[Films] Reset Message and Error'
 );

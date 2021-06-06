@@ -15,12 +15,12 @@ export class CinemaService {
 
   constructor(private http: HttpClient) { }
 
-  postCinema(cinema: Cinema): Observable<{ message: string, data: Cinema }> {
+  postCinema(cinema: Cinema): Observable<{ message: string, cinema: Cinema }> {
     const body = {
       ...cinema,
       additionalServices: cinema.additionalServices.map((service: Service) => service._id)
     };
-    return this.http.post<{ message: string, data: Cinema }>(`${environment.baseUrl}${this.pathToCinemas}${this.pathToNewCinema}`, body);
+    return this.http.post<{ message: string, cinema: Cinema }>(`${environment.baseUrl}${this.pathToCinemas}${this.pathToNewCinema}`, body);
   }
 
   getCinemasFullInfo(): Observable<Cinema[]> {
