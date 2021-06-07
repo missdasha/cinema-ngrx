@@ -13,7 +13,11 @@ export class SeanceService {
 
   constructor(private http: HttpClient) { }
 
-  postSeance(seance: Seance): Observable<{ message: string, data: Seance }> {
-    return this.http.post<{ message: string, data: Seance }>(`${environment.baseUrl}${this.pathToSeances}${this.pathToNewSeance}`, seance);
+  postSeance(seance: Seance): Observable<{ message: string, seance: Seance }> {
+    return this.http.post<{ message: string, seance: Seance }>(`${environment.baseUrl}${this.pathToSeances}${this.pathToNewSeance}`, seance);
+  }
+
+  getSeance(id: string): Observable<Seance> {
+    return this.http.get<Seance>(`${environment.baseUrl}${this.pathToSeances}${id}`);
   }
 }

@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filmSelectors, filmActions, RootStoreState } from 'src/app/store';
 import { Film } from '../models/film.model';
+import { Seance } from '../models/seance.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +50,9 @@ export class FilmFacadeService {
 
   reset() {
     this.store$.dispatch(filmActions.reset());
+  }
+
+  addSeance(seance: Seance) {
+    this.store$.dispatch(filmActions.addSeance({ seance }));
   }
 }

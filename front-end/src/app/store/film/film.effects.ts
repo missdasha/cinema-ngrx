@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY, of } from 'rxjs';
-import { map, mergeMap, catchError } from 'rxjs/operators';
+import { map, mergeMap, catchError, switchMap } from 'rxjs/operators';
+import { Seance } from 'src/app/core/models/seance.model';
 import { FilmService } from 'src/app/core/services/film.service';
-import { addFilm, addFilmFailure, addFilmSuccess, loadFilms, loadFilmsSuccess } from './film.actions';
+import { SeanceService } from 'src/app/core/services/seance.service';
+import { addFilm, addFilmFailure, addFilmSuccess, addSeance, addSeanceFailure, addSeanceSuccess, loadFilms, loadFilmsSuccess } from './film.actions';
 
 @Injectable()
 export class FilmEffects {
@@ -26,9 +28,22 @@ export class FilmEffects {
       ))
     )
   );
-
+  
+  addSeance$ = createEffect(() => this.actions$.pipe(
+    ofType(addSeance),
+    mergeMap(({ seance }) => this.seanceService.postSeance(seance).pipe(
+        switchMap(({ seance, message }) => this.seanceService.getSeance(seance._id).pipe(
+          mergeMap((seance: Seance) => of({ type: addSeanceSuccess.type, seance, message })),
+          catchError(error => of({ type: addFilmFailure.type, error }))
+        )),
+        catchError(error => of({ type: addFilmFailure.type, error }))
+      )
+    ))
+  );
+  
   constructor(
     private actions$: Actions,
     private filmService: FilmService,
+    private seanceService: SeanceService
   ) { }
 }

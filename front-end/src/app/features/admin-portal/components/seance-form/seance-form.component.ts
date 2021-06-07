@@ -5,9 +5,8 @@ import * as moment from 'moment';
 import { Cinema } from '../../../../core/models/cinema.model';
 import { Film } from '../../../../core/models/film.model';
 import { getTimestamp } from 'src/app/shared/utils/utils';
-import { SeanceService } from '../../../../core/services/seance.service';
 import { Seance } from '../../../../core/models/seance.model';
-import { messages, seatsNames } from '../../../../core/сonstants/constants';
+import { messages, seatsNames, serverErrorCode } from '../../../../core/сonstants/constants';
 import { filter, takeUntil } from 'rxjs/operators';
 import { FilmFacadeService } from 'src/app/core/services/film-facade.service';
 import { CinemaFacadeService } from 'src/app/core/services/cinema-facade.service';
@@ -29,7 +28,6 @@ export class SeanceFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private seanceService: SeanceService,
     private filmFacadeService: FilmFacadeService,
     private cinemaFacadeService: CinemaFacadeService
   ) { }
@@ -74,11 +72,46 @@ export class SeanceFormComponent implements OnInit, OnDestroy {
         );
 
         this.isLoaded = true;
-      })
+      });
+
+    this.filmFacadeService.selectSuccessMessage()
+    .pipe(
+      filter(message => !!message),
+      takeUntil(this.notifier$)
+    )
+    .subscribe(
+      (message: string) => {
+        alert(messages[message]);
+        for (let controlName in this.controls) {
+          if (controlName === 'prices') {
+            this.controls[controlName].reset(Array(3).fill(''));
+          }
+          else if (controlName === 'format') {
+            this.controls[controlName].reset('2D');
+          }
+          else {
+            this.controls[controlName].reset('');
+          }
+        }
+      }
+    );
+    
+    this.filmFacadeService.selectError()
+      .pipe(
+        filter(error => !!error),
+        takeUntil(this.notifier$)
+      )
+      .subscribe(
+        (e) => {
+          alert('Извините, произошла ошибка');
+          console.error(e);
+        }
+      );
   }
 
   ngOnDestroy() {
     this.notifier$.next();
+    this.filmFacadeService.reset();
   }
 
   get controls(): { [key: string]: AbstractControl } {
@@ -127,31 +160,8 @@ export class SeanceFormComponent implements OnInit, OnDestroy {
         startTime,
         endTime
       };
-      this.seanceService.postSeance(seance).subscribe(
-        (info: { message: string, data: Seance }) => {
-          alert(messages[info.message]);
-          for (let controlName in this.controls) {
-            if (controlName === 'prices') {
-              this.controls[controlName].reset(Array(3).fill(''));
-            }
-            else if (controlName === 'format') {
-              this.controls[controlName].reset('2D');
-            }
-            else {
-              this.controls[controlName].reset('');
-            }
-          }
-        },
-        (e) => {
-          if (e.error) {
-            alert(messages[e.error.message]);
-          }
-          else {
-            alert('Извините, произошла ошибка');
-            console.error(e);
-          }
-        }
-      );
+
+      this.filmFacadeService.addSeance(seance);
     }
   }
 }

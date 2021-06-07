@@ -28,7 +28,7 @@ async (req, res, next) => {
     }
     const newSeance = new Seance(req.body);
     const savedSeance = await newSeance.save();
-    res.status(201).json({ message: SEANCE_IS_ADDED_MESSAGE, data: savedSeance });
+    res.status(201).json({ message: SEANCE_IS_ADDED_MESSAGE, seance: savedSeance });
   }
   catch (e) {
     console.log(e);
@@ -40,7 +40,7 @@ router.get('/:seanceId', async (req, res, next) => {
   try {
     const seance = await Seance
                           .findById(req.params.seanceId)
-                          .populate({ path: 'cinema', select: 'city name address -_id' });                    
+                          .populate('cinema');                  
     if (seance) {
       return res.status(200).json(seance);
     }
