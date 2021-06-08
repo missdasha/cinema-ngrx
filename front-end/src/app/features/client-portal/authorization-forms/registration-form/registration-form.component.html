@@ -1,0 +1,22 @@
+<form class="form" [formGroup]="registrationForm" (ngSubmit)="registerUser()">
+  <div class="form__group">
+    <input class="form__control" formControlName="userName" type="text" name="name" placeholder="Имя" autocomplete="off">
+    <div class="error-message"[class.hidden]="registrationForm.controls['userName'].valid || registrationForm.controls['userName'].untouched">Введите имя</div>
+  </div>
+  <div class="form__group">
+    <input class="form__control" formControlName="userEmail" type="text" name="email" placeholder="Email" autocomplete="off">
+    <div class="error-message" [class.hidden]="registrationForm.controls['userEmail'].valid || registrationForm.controls['userEmail'].untouched">Некорректный email</div>
+  </div>
+  <div class="rule">Пароль должен содержать не менее 6 символов и состоять из цифр, латинских прописных и строчных букв</div>
+  <div class="form__group">
+    <input class="form__control" formControlName="userPassword" type="password" name="password" placeholder="Пароль">
+    <div class="error-message" [class.hidden]="registrationForm.controls['userPassword'].valid || registrationForm.controls['userPassword'].untouched">Некорректный пароль</div>
+  </div>
+  <div class="form__group">
+    <input class="form__control" formControlName="userPasswordRepeat" type="password" name="password" placeholder="Повторите пароль">
+    <div class="error-message" [class.hidden]="registrationForm.controls['userPasswordRepeat'].valid || registrationForm.controls['userPasswordRepeat'].untouched">
+      {{registrationForm.controls['userPasswordRepeat'].errors && registrationForm.controls['userPasswordRepeat'].errors.confirmedValidator ? "Пароли не совпадают" : "Повторите пароль"}}
+    </div>
+  </div>
+  <input class="button" [class.disabled]="!registrationForm.valid" type="submit" value="Зарегистрироваться">
+</form>

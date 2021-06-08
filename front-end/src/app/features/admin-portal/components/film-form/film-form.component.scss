@@ -1,0 +1,16 @@
+@import '../../../../styles/variables.scss';
+
+.textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.dates {
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  padding: 0 10px;
+}
+

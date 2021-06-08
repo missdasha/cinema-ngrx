@@ -1,0 +1,11 @@
+<div class="cinemas">
+  <div class="container cinemas__container">
+    <div class="cinema" *ngFor="let cinema of cinemas$ | async">
+      <div class="cinema__info">
+        <h3 class="cinema__heading">{{cinema.name}}</h3>
+        <p class="cinema__address">г. {{cinema.city}}, {{cinema.address}}</p>
+      </div>
+      <app-buy-ticket-button [textOnButton]="'Купить билет'" (onBuyTicket)="showAfisha(cinema.name)"></app-buy-ticket-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+@import '../../styles/variables.scss';
+
+.form {
+  width: 370px;
+  color: $light-color;
+}
+
+.form__control {
+  font-family: Calibri, sans-serif;
+  font-size: 16px;
+  color: #180222f2;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.heading {
+  margin-top: 0;
+}
+
+.variants {
+  display: flex;
+  justify-content: space-between;
+}
+
+.variant {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxes {
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 75px;
+}
+
+.checkbox {
+  margin: 0;
+}
+
+.radio-buttons {
+  padding-bottom: 18px;
+}
+
+.radio {
+  margin: 0;
+}
+
+.label {
+  margin-left: 10px;
+}
+

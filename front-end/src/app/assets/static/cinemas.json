@@ -1,0 +1,167 @@
+[
+  {
+    "name": "Кинотеатр 1",
+    "city": "Минск",
+    "address": "пр. Независимости, 88",
+    "additionalServices": [
+      {
+        "_id": "1",
+        "name": "Сок",
+        "price": 2,
+        "quantity": "2л"
+      }
+    ],
+    "halls": [
+      {
+        "seatsTypes": ["standard", "loveSeats"],
+        "plan": [
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["loveSeats", "loveSeats", "loveSeats", "loveSeats", "loveSeats", "loveSeats", "loveSeats"]
+        ]
+      },
+      {
+        "seatsTypes": ["standard", "vip"],
+        "plan": [
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip"]
+        ]
+      },
+      {
+        "seatsTypes": ["standard", "vip"],
+        "plan": [
+          ["vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Кинотеатр 2",
+    "city": "Брест",
+    "address": "ул. Городская, 18",
+    "additionalServices": [
+      {
+        "_id": "2",
+        "name": "Сок",
+        "price": 2,
+        "quantity": "2л"
+      }
+    ],
+    "halls": [
+      {
+        "seatsTypes": ["standard", "loveSeats"],
+        "plan": [
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["loveSeats", "loveSeats", "loveSeats", "loveSeats", "loveSeats", "loveSeats", "loveSeats"]
+        ]
+      },
+      {
+        "seatsTypes": ["standard", "vip"],
+        "plan": [
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip"]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Кинотеатр 3",
+    "city": "Витебск",
+    "address": "ул. Ленина, 35",
+    "additionalServices": [
+      {
+        "_id": "3",
+        "name": "Сок",
+        "price": 2,
+        "quantity": "2л"
+      }
+    ],
+    "halls": [
+      {
+        "seatsTypes": ["standard", "loveSeats"],
+        "plan": [
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["loveSeats", "loveSeats", "loveSeats", "loveSeats", "loveSeats", "loveSeats", "loveSeats"]
+        ]
+      },
+      {
+        "seatsTypes": ["standard", "vip"],
+        "plan": [
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard","standard","standard"],
+          ["vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip"]
+        ]
+      },
+      {
+        "seatsTypes": ["standard", "vip"],
+        "plan": [
+          ["vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip", "vip"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"],
+          ["standard", "standard", "standard","standard","standard","standard","standard","standard", "standard", "standard", "standard","standard","standard","standard"]
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+<form [formGroup]="filtersForm">
+  <ul class="filters">
+    <app-filter
+      *ngFor="let formControlName of defaultVariants; let ind = index"
+      [formControlName]="formControlName"
+      [variants]="data[ind]">
+    </app-filter>
+  </ul>
+</form>

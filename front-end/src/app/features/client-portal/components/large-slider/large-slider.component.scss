@@ -1,0 +1,80 @@
+@import '../../../../styles/variables.scss';
+
+.slider {
+  height: 577px;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__films {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__arrows {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1180px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.arrow {
+  cursor: pointer;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.film {
+  background-color: $dark-color;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  &__banner {
+    position: absolute;
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 70%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(90deg, $dark-color 0%, rgba(0, 0, 0, .67) 19.27%, rgba(1, 0, 2, .27) 33.85%, rgba(255, 255, 255, 0) 50%);
+    }
+  }
+
+  &__info {
+    position: absolute;
+    left: 15%;
+    z-index: 10;
+  }
+
+  &__title {
+    font-size: 48px;
+    font-weight: 400;
+    color: $white-color;
+    margin: 0;
+  }
+
+  &__genre, &__age {
+    font-size: 18px;
+    color: $light-color;
+  }
+}
+
+.hidden {
+  display: none;
+}

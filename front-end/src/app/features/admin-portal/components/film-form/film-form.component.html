@@ -1,0 +1,56 @@
+<form class="form film-form" [formGroup]="filmForm" (ngSubmit)="add()" novalidate>
+  <div class="form__group">
+    <p class="heading">Название</p>
+    <input class="form__control" formControlName="title" type="text" name="title" autocomplete="off">
+    <div class="error-message" [class.hidden]="controls['title'].valid || controls['title'].untouched">Введите название</div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Описание</p>
+    <textarea class="form__control textarea" formControlName="description" type="text" name="description">
+    </textarea>
+    <div class="error-message" [class.hidden]="controls['description'].valid || controls['description'].untouched">Введите описание</div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Длительность</p>
+    <input class="form__control" formControlName="duration" type="time" name="duration" placeholder="00:00">
+    <div class="error-message" [class.hidden]="controls['duration'].valid || controls['duration'].untouched">Введите длительность</div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Даты показа</p>
+    <div class="dates">
+      <input class="form__control" formControlName="startDate" type="date" name="startDate"
+        [min]="todayDate | moment:'YYYY-MM-DD'" [max]="maxDate | moment:'YYYY-MM-DD'" (change)="chooseStartDate()">
+      <span class="separator">-</span>
+      <input class="form__control" formControlName="endDate" type="date" name="endDate"
+        [min]="minDate | moment:'YYYY-MM-DD'" [max]="maxDate | moment:'YYYY-MM-DD'" (change)="chooseEndDate()">
+    </div>
+    <div class="error-message" [class.hidden]="(controls['startDate'].valid || controls['startDate'].untouched) && (controls['endDate'].valid || controls['endDate'].untouched)">Введите даты</div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Возрастное ограничение</p>
+    <div class="variants radio-buttons">
+      <div *ngFor="let age of ages" class="variant">
+        <input [id]="age + '+'" class="radio" type="radio" [value]="age" name="age" formControlName="age">
+        <label class="label" [for]="age + '+'">{{age}}+</label>
+      </div>
+    </div>
+  </div>
+  <div class="form__group" formArrayName="genres">
+    <p class="heading">Жанры</p>
+    <div class="variants checkboxes">
+      <div class="variant" *ngFor="let genre of genres; let i = index">
+        <input class="checkbox" type="checkbox" [formControlName]="i" />
+        <label class="label">{{genre}}</label>
+      </div>
+    </div>
+    <div class="error-message" [class.hidden]="!controls['genres'].errors || controls['genres'].untouched">
+      Выберите жанры
+    </div>
+  </div>
+  <div class="form__group">
+    <p class="heading">Постер</p>
+    <input formControlName="imageSrc" type="file" name="imageSrc" accept=".jpg, .jpeg, .png" (change)="selectImage($event)">
+    <div class="error-message" [class.hidden]="controls['imageSrc'].valid || controls['imageSrc'].untouched">Загрузите изображение</div>
+  </div>
+  <button class="button" [class.disabled]="!filmForm.valid" type="submit" value="Добавить">Добавить</button>
+</form>

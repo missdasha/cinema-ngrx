@@ -1,0 +1,9 @@
+@import '../../../../styles/variables.scss';
+
+.filters {
+  margin: 0;
+  padding: 0;
+  border: 2px solid $white-color;
+  border-radius: 5px;
+  display: flex;
+}

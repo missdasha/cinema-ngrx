@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+
+.form {
+  &__controls {
+    margin: 118px 0;
+  }
+
+  &__control {
+    font-family: Calibri, sans-serif;
+    font-size: 16px;
+    color: #180222f2;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 15px 4px #e5e5e5;
+    outline: none;
+  }
+}
+
+.rule {
+  color: #180222f2;
+  font-size: 14px;
+  padding: 3px 0 21px;
+}

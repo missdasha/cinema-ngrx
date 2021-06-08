@@ -1,0 +1,84 @@
+@import '../../../../styles/variables.scss';
+
+:host {
+  width: 20%;
+
+  &:last-child .filter {
+    border-right: none;
+  }
+}
+
+.filter {
+  position: relative;
+  display: block;
+  border-right: 2px solid white;
+  text-align: center;
+}
+
+.filter__link {
+  cursor: pointer;
+  color: $white-color;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.choice {
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.variants {
+  background-color: $white-color;
+  margin: 0;
+  padding: 10px 0;
+  border-radius: 0 0 5px 5px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  list-style: none;
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  transition: 0.5s ease-in-out;
+
+  &__item {
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.filter:hover .variants {
+	transform: scaleY(1);
+}
+
+.variant {
+  cursor: pointer;
+  color: #180222f2;
+  font-size: 18px;
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+
+  &:hover {
+    color: $bright-color;
+  }
+}
+
+.arrow_down {
+  padding-top: 4px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+.chosen {
+  font-weight: bold;
+  color: $bright-color;
+}

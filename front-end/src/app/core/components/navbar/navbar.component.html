@@ -1,0 +1,16 @@
+<nav class="nav">
+  <div class="container nav__container">
+    <h1 class="nav__logo" routerLink="">Cinema</h1>
+    <ul class="list">
+      <li class="list__item"><a class="link" routerLink="/afisha">Афиша</a></li>
+      <li class="list__item"><a class="link" routerLink="/cinemas">Кинотеатры</a></li>
+    </ul>
+    <div class="nav_right">
+      <i class="nav__search-icon fas fa-user" *ngIf="isUserAuthorized && !isAdmin" routerLink="/orders"></i>
+      <i class="nav__search-icon fas fa-sliders-h" *ngIf="isUserAuthorized && isAdmin" routerLink="/admin"></i>
+      <i class="nav__search-icon fas fa-search" (click)="showSearchWindow()"></i>
+      <button class="nav__button" *ngIf="!isUserAuthorized" (click)="showForm()">Войти</button>
+      <button class="nav__button" *ngIf="isUserAuthorized" (click)="logout()">Выйти</button>
+    </div>
+  </div>
+</nav>
